@@ -1,0 +1,26 @@
+Revisión farmacocinética independiente · Simulador TCI de dexmedetomidina en perros v1.2.1
+Autor: Francisco Carvajal Sánchez · 12/10/2026 (curvas completas de Lin 2008 y Pascoe 2006; v1.2.1: solo cambian los textos de aviso, motor idéntico a la v1.2.0)
+
+El documento principal es el informe técnico: Informe_tecnico_TCI_dexmedetomidina_v1.2.1.pdf.
+Para probar el simulador basta abrir simulador/simulador_tci_dexmedetomidina.html en Chrome, Edge o Firefox (funciona sin conexión).
+
+Contenido:
+  Informe_tecnico_TCI_dexmedetomidina_v1.2.1.pdf  Informe técnico (documento principal)
+  Technical_report_TCI_dexmedetomidine_v1.2.1.pdf El mismo informe en inglés (README.txt)
+  figuras/ · figures_en/                      Las 3 figuras del informe en PNG, en español y en inglés
+  Informe_Fase1_validacion_externa_v4.pdf     Validación externa, modelo corregido (apartado 7) y curso temporal/volumen (apartado 8)
+  Informe_verificacion_Fase0_v1.2.1.pdf       Verificación del software (incluye la regresión frente a la v1.2.0)
+  fase1/datos/concentraciones_publicadas.csv  99 medias publicadas (93 fiables) con su fuente
+  fase1/datos/notas_datos.md                  Decisiones de extracción y calibración de la digitalización
+  fase1/datos/figuras/                        Capturas de Lin 2008 (Fig. 2) y Pascoe 2006 (Fig. 1) usadas para digitalizar
+  fase1/modelo_corregido.py                   Calibración y evaluación del modelo corregido (~15 s)
+  fase1/modelo_volumen.py                     Exploración: volumen central/periférico mayor en anestesia (~1 min)
+  fase1/analisis.py                           Validación del modelo publicado
+  fase1/modelo_experimental.py                Modelo de 3 parámetros con todos los estudios (no adoptado)
+  fase1/resultados/*.json                     Resultados numéricos
+  fase0/referencia.py                         Implementación de referencia de los dos modelos
+  fase0/reconstruir_cp.py                     Cp de los dos modelos desde el CSV de un caso
+  simulador/simulador_tci_dexmedetomidina.html  Simulador v1.2.1 listo para usar (una sola página, sin conexión)
+  simulador/tci_dexmedetomidina_perros.jsx    Código del simulador (modelos y motor al principio)
+
+Requisitos: Python 3 con numpy, scipy, matplotlib y reportlab. Ejecutar los scripts desde fase1/ (esperan datos/ y resultados/).

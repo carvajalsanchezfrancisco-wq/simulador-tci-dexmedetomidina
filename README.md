@@ -1,16 +1,52 @@
 # Simulador TCI de dexmedetomidina en perros
 
-Simulador de infusión controlada por objetivo (TCI) de dexmedetomidina para caninos, con su protocolo de validación (TCI-DEX-01), la verificación del código (Fase 0) y la validación farmacocinética (Fase 1).
+Simulador de infusión controlada por objetivo (TCI) de dexmedetomidina para caninos. El repositorio incluye también:
+
+- el protocolo de validación TCI-DEX-01;
+- la verificación del código (Fase 0);
+- la validación farmacocinética (Fase 1);
+- el peritaje del código.
 
 **Autor:** Francisco Carvajal Sánchez, estudiante de Medicina Veterinaria, Universidad Privada Antenor Orrego (UPAO), Trujillo, Perú.
 
-> Este repositorio se creó para que el proyecto no se pierda al cerrarse la sesión de trabajo. El contenedor de trabajo se reinició el 24/10/2026 y se perdieron los archivos locales. Lo que aquí figura se rescató del historial de la sesión y de los documentos en Claude Docs. La sección «Lo que falta subir» explica cómo completar el resto.
+**Para usar el simulador:** abra `simulador/simulador_tci_dexmedetomidina.html` en Chrome, Edge o Firefox. Funciona sin conexión.
 
 ## Estado actual (26/10/2026)
 
-- **Versión vigente del simulador:** v1.3.0.
+- **Versión vigente:** v1.3.0. El código fuente y el HTML del repositorio son idénticos byte a byte a la v1.3.0 entregada (ver «Cómo se recuperó»).
 - **Reunión con CONICET** (Dra. Litterio y Dr. Lorenzutti): martes 27/10/2026, 18:30 h Córdoba (16:30 h Perú), por Google Meet. La guía de preparación está en `documentos/`.
-- **Paquete enviado a revisión** (correo a Litterio del 13/10/2026): `revision_farmacocinetica.zip` (v1.2.1) y `Protocolo_TCI-DEX-01_v1.2.pdf`.
+- **Paquete enviado a revisión** (correo a Litterio del 13/10/2026): `revision_farmacocinetica.zip` (v1.2.1) y `Protocolo_TCI-DEX-01_v1.2.pdf`. Ambos están en el repositorio.
+
+## Estructura
+
+| Carpeta | Contenido |
+|---|---|
+| `simulador/` | **v1.3.0**: código fuente (`tci_dexmedetomidina_perros.jsx`) y página lista para usar (`simulador_tci_dexmedetomidina.html`). |
+| `compilar/` | Compilación del HTML a partir del jsx, con dependencias fijadas (salida idéntica byte a byte). |
+| `documentos/` | Protocolo TCI-DEX-01 v1.2 (PDF y Markdown), dossier para el revisor farmacocinético y guía de la reunión con CONICET. |
+| `informes/` | Informe técnico v1.2.1 (español e inglés), Fase 1 v4, verificación Fase 0 v1.2.1, figuras y el LEEME del paquete. |
+| `validacion_fase1/` | Datos publicados (99 medias), scripts de la Fase 1, resultados y `modelo_integrado.py` (ajuste conjunto con Levionnois). |
+| `verificacion/motor/` | `referencia.py` (implementación independiente de los dos modelos) y `reconstruir_cp.py` (Cp desde el CSV de un caso). |
+| `verificacion/peritaje/` | Prueba de estrés (`estres_motor.mjs`) y pruebas de hallazgos H-01 a H-09 (`pruebas_hallazgos.mjs`). |
+| `versiones/v1.2.1/` | Simulador v1.2.1 y el zip exacto enviado a revisión (base de la regresión). |
+| `reconstruccion/` | Script que convierte el jsx v1.2.1 en v1.3.0 aplicando los nueve pasos de cambio registrados. |
+
+## Uso rápido
+
+**Compilar el HTML** (requiere Node.js 22). La primera vez instala las dependencias fijadas:
+
+```
+sh compilar/compilar_html.sh
+```
+
+**Pruebas del peritaje** (requieren las dependencias de `compilar/`):
+
+```
+node verificacion/peritaje/pruebas_hallazgos.mjs simulador/tci_dexmedetomidina_perros.jsx /tmp/hallazgos
+node verificacion/peritaje/estres_motor.mjs simulador/tci_dexmedetomidina_perros.jsx /tmp/estres 4991
+```
+
+**Scripts de la Fase 1:** requieren Python 3 con numpy, scipy, matplotlib y reportlab. Se ejecutan desde `validacion_fase1/`.
 
 ## Modelo y algoritmo
 
@@ -56,63 +92,43 @@ Simulador de infusión controlada por objetivo (TCI) de dexmedetomidina para can
   - Interfaz: 26/26 pruebas en el HTML y en el .exe; Windows 9/9.
   - Peritaje: prueba de estrés de 4991 casos aleatorios sin fallos, y pruebas de hallazgos H-01 a H-09 superadas.
 
-**Huellas SHA-256 de v1.3.0 (para validar una reconstrucción)**
+**Huellas SHA-256 de v1.3.0**
 
 | Archivo | SHA-256 |
 |---|---|
-| JSX | `a1e4a98914e06f58…` |
-| HTML | `191c627f2443f42b…` |
-| Instalador Windows | `d34b6adbb6e64ebaa1fb744a5ffe5f73a9bcb995a22b08ba9a12969075d325a5` |
-| Ejecutable | `5a48d370ae3d08efbe8d571bce8756b8ce5d5d7e3b065d8bad7a2f83753b709d` |
+| `simulador/tci_dexmedetomidina_perros.jsx` | `a1e4a98914e06f5800561889dad599b83af843e16354552f6c12becfd08a1e8a` |
+| `simulador/simulador_tci_dexmedetomidina.html` | `191c627f2443f42bc36a61d1b5eb8d26cc3f609613b95779934e37c05c717320` |
+| Instalador Windows (no incluido) | `d34b6adbb6e64ebaa1fb744a5ffe5f73a9bcb995a22b08ba9a12969075d325a5` |
+| Ejecutable (no incluido) | `5a48d370ae3d08efbe8d571bce8756b8ce5d5d7e3b065d8bad7a2f83753b709d` |
 
-## Contenido del repositorio
+## Cómo se recuperó (26/10/2026)
 
-**`documentos/`**
+El contenedor de trabajo se reinició el 24/10/2026 y se perdieron los archivos locales. La recuperación siguió estos pasos:
 
-- `protocolo_TCI-DEX-01_v1.2.md`: protocolo de validación. El texto aún menciona v1.2.1; está pendiente actualizarlo a v1.3.0.
-- `dossier_revision_farmacocinetica_v1.2.1.md`: dossier para el revisor farmacocinético.
-- `preparacion_reunion_CONICET_2026-10-27.md`: preguntas probables y respuestas para la reunión.
+1. **Paquete v1.2.1:** el zip se extrajo del correo enviado a Litterio el 13/10.
+2. **Código v1.3.0:** `reconstruccion/v1.2.1_a_v1.3.0.py` aplicó los nueve pasos de cambio registrados en el historial de la sesión. El jsx resultante tiene la huella original `a1e4a989…`.
+3. **Compilación:** se reprodujo la cadena original (esbuild 0.28.2, React 18.3.1, Recharts 2.15.4, fast-equals 5.4.4).
+   - Se comprobó primero con la v1.2.1: el HTML generado coincide con el del zip (`40195eca…`).
+   - El HTML de la v1.3.0 coincide con su huella original (`191c627f…`).
+4. **Comprobaciones tras la recuperación:**
+   - pruebas H-01 a H-09: 9/9;
+   - prueba de estrés: 4991 casos, 0 fallos;
+   - `modelo_integrado.py` reproduce el ajuste conjunto (Cl0 3.49, C50 0.54);
+   - el HTML abre en Chromium mostrando la versión 1.3.0, sin errores.
 
-**`reconstruccion/v1.2.1_a_v1.3.0.py`**
+## Pendiente
 
-Aplica, en orden, los nueve pasos de cambio registrados para pasar el código fuente de v1.2.1 a v1.3.0:
+**Aún no está en el repositorio**
 
-```
-python3 reconstruccion/v1.2.1_a_v1.3.0.py <jsx v1.2.1> <jsx v1.3.0 de salida>
-```
+- El instalador y el ejecutable de Windows v1.3.0. El autor los tiene, y conviene subirlos como *Release* de GitHub porque son archivos binarios grandes.
+- El código de escritorio para Windows (Go).
+- El PDF del peritaje del código.
+- El arnés completo de la Fase 0: `verificar_motor.mjs`, `pruebas_ui.mjs`, `pruebas_exe.py` y `generar_informe.py`.
 
-**Otros directorios**
+**Documentos por actualizar**
 
-- `validacion_fase1/modelo_integrado.py`: ajuste conjunto con la curva de Levionnois (Cl0 3.49, C50 0.54). Las dosis cambian entre 3 % y 8 %. Necesita `modelo_corregido.py`, que viene en el zip de v1.2.1.
-- `verificacion/peritaje/`: `estres_motor.mjs` (prueba de estrés) y `pruebas_hallazgos.mjs` (H-01 a H-09).
-  - Requieren Node y esbuild.
-  - Ajuste pendiente: la ruta de importación de esbuild apunta a `/home/user/verificacion/node_modules` y debe corregirse.
-
-## Lo que falta subir
-
-**Dónde siguen existiendo los archivos perdidos**
-
-| Archivo | Dónde está |
-|---|---|
-| `revision_farmacocinetica.zip` (v1.2.1) | Adjunto al correo a Litterio del 13/10/2026 |
-| `Protocolo_TCI-DEX-01_v1.2.pdf` | Mismo correo |
-| Informe técnico en PDF | Correo del 9/10/2026 |
-| HTML e instalador de v1.3.0, PDF del peritaje | Archivos enviados al autor durante la sesión |
-
-El zip contiene el código fuente v1.2.1 (jsx y HTML), los informes en español e inglés, los datos, scripts y resultados de la Fase 1, `fase0/referencia.py`, `reconstruir_cp.py` y los PDF de la Fase 0 y la Fase 1.
-
-**Pasos para completar el repositorio**
-
-1. Descomprimir `revision_farmacocinetica.zip` en el repositorio.
-2. Ejecutar `reconstruccion/v1.2.1_a_v1.3.0.py` sobre el jsx de v1.2.1.
-3. Comparar el resultado con la huella SHA-256 de v1.3.0, o con el HTML de v1.3.0.
-4. Subir el HTML y el instalador de v1.3.0, preferiblemente como *Release* de GitHub, porque son archivos grandes.
-
-**Pendiente y opcional**
-
-- Reconstruir el arnés completo de verificación de la Fase 0 (motor, interfaz, .exe e informe).
-- Reconstruir el código de escritorio para Windows.
-- Actualizar el protocolo, los informes y el paquete a v1.3.0; corregir «Investigador principal … MV».
+- Protocolo, informes y paquete a la v1.3.0.
+- En el protocolo, corregir «Investigador principal … MV».
 
 ## Documentos en Claude Docs
 

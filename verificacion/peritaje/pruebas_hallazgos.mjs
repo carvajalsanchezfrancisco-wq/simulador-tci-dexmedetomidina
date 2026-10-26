@@ -1,11 +1,13 @@
 // Peritaje · pruebas de los hallazgos de la revisión (escenarios concretos de los revisores).
 // Uso: node pruebas_hallazgos.mjs <jsx> <salida>
-import { build } from "/home/user/verificacion/node_modules/esbuild/lib/main.js";
+// Dependencias: las de ../../compilar (npm ci en esa carpeta)
+const NM = new URL("../../compilar/node_modules/", import.meta.url);
+const { build } = await import(new URL("esbuild/lib/main.js", NM));
 import { readFileSync, writeFileSync } from "node:fs";
-import { pathToFileURL } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 const [SRC, OUT] = process.argv.slice(2);
 writeFileSync(OUT + ".jsx", readFileSync(SRC, "utf8") + "\nexport { buildPlan, safetyReview, newOrWorse, confirmationCovers, asConfirmation, validateDraft, draftToConfig, SAFETY, APP_VERSION };\n");
-await build({ entryPoints: [OUT + ".jsx"], bundle: true, platform: "node", format: "esm", outfile: OUT + ".mjs", jsx: "automatic", logLevel: "warning", nodePaths: ["/home/user/verificacion/node_modules"] });
+await build({ entryPoints: [OUT + ".jsx"], bundle: true, platform: "node", format: "esm", outfile: OUT + ".mjs", jsx: "automatic", logLevel: "warning", nodePaths: [fileURLToPath(NM)] });
 const M = await import(pathToFileURL(OUT + ".mjs").href);
 const res = [];
 const test = (id, desc, ok, ev) => { res.push({ id, desc, pass: !!ok, evidencia: ev }); console.log(`${ok ? "✔" : "✘"} ${id} ${desc} · ${ev}`); };

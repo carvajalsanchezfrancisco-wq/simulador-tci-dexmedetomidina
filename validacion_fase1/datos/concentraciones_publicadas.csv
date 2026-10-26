@@ -1,0 +1,100 @@
+estudio,grupo,dosis_ugkg,duracion_admin_min,infusion_ugkgh,fin_infusion_min,n,peso_kg,raza,estado,muestra,ensayo,t_min,c_ngml,fuente,fiable
+Kuusela 2000,DEX10,10,0.5,0,,6,12-17,Beagle,despiertos,arterial,GC-MS,5,13.5,Fig.3 (digitalizada),si
+Kuusela 2000,DEX10,10,0.5,0,,6,12-17,Beagle,despiertos,arterial,GC-MS,15,5.5,Texto (Resultados),si
+Kuusela 2000,DEX10,10,0.5,0,,6,12-17,Beagle,despiertos,arterial,GC-MS,30,3.6,Fig.3 (digitalizada),si
+Kuusela 2000,DEX10,10,0.5,0,,6,12-17,Beagle,despiertos,arterial,GC-MS,45,2.7,Texto (Resultados),si
+Kuusela 2000,DEX10,10,0.5,0,,6,12-17,Beagle,despiertos,arterial,GC-MS,60,2.0,Fig.3 (digitalizada),si
+Kuusela 2000,DEX10,10,0.5,0,,6,12-17,Beagle,despiertos,arterial,GC-MS,90,1.15,Fig.3 (digitalizada),si
+Kuusela 2000,DEX10,10,0.5,0,,6,12-17,Beagle,despiertos,arterial,GC-MS,120,0.75,Fig.3 (digitalizada),si
+Kuusela 2000,DEX20,20,0.5,0,,6,12-17,Beagle,despiertos,arterial,GC-MS,5,33,Fig.3 (digitalizada),si
+Kuusela 2000,DEX20,20,0.5,0,,6,12-17,Beagle,despiertos,arterial,GC-MS,15,14.0,Texto (Resultados),si
+Kuusela 2000,DEX20,20,0.5,0,,6,12-17,Beagle,despiertos,arterial,GC-MS,30,8.6,Fig.3 (digitalizada),si
+Kuusela 2000,DEX20,20,0.5,0,,6,12-17,Beagle,despiertos,arterial,GC-MS,45,6.2,Texto (Resultados),si
+Kuusela 2000,DEX20,20,0.5,0,,6,12-17,Beagle,despiertos,arterial,GC-MS,60,4.7,Fig.3 (digitalizada),si
+Kuusela 2000,DEX20,20,0.5,0,,6,12-17,Beagle,despiertos,arterial,GC-MS,90,3.1,Fig.3 (digitalizada),si
+Kuusela 2000,DEX20,20,0.5,0,,6,12-17,Beagle,despiertos,arterial,GC-MS,120,2.0,Fig.3 (digitalizada),si
+Honkavaara 2012,D (sin MK-467),10,0.5,0,,8,14.9,Beagle,despiertos,venosa central,LC-MS,1,15.4,Fig.1 (digitalizada),si
+Honkavaara 2012,D (sin MK-467),10,0.5,0,,8,14.9,Beagle,despiertos,venosa central,LC-MS,3,11.6,Fig.1 (digitalizada),si
+Honkavaara 2012,D (sin MK-467),10,0.5,0,,8,14.9,Beagle,despiertos,venosa central,LC-MS,5,11.5,Fig.1 (digitalizada),si
+Honkavaara 2012,D (sin MK-467),10,0.5,0,,8,14.9,Beagle,despiertos,venosa central,LC-MS,10,9.2,Fig.1 (digitalizada),si
+Honkavaara 2012,D (sin MK-467),10,0.5,0,,8,14.9,Beagle,despiertos,venosa central,LC-MS,20,6.2,Fig.1 recuadro log (digitalizada),si
+Honkavaara 2012,D (sin MK-467),10,0.5,0,,8,14.9,Beagle,despiertos,venosa central,LC-MS,30,4.6,Fig.1 recuadro log (digitalizada),si
+Honkavaara 2012,D (sin MK-467),10,0.5,0,,8,14.9,Beagle,despiertos,venosa central,LC-MS,45,3.4,Fig.1 recuadro log (digitalizada),si
+Honkavaara 2012,D (sin MK-467),10,0.5,0,,8,14.9,Beagle,despiertos,venosa central,LC-MS,60,2.6,Fig.1 recuadro log (digitalizada),si
+Honkavaara 2012,D (sin MK-467),10,0.5,0,,8,14.9,Beagle,despiertos,venosa central,LC-MS,90,1.7,Fig.1 recuadro log (digitalizada),si
+de Sant'Ana Alves 2024,2 ug/kg en 2 min,2,2,0,,6,6.8 (3-10.2),mestizos,despiertos,venosa cefálica,UHPLC-MS/MS,3,2.67,Fig.1 en pg/mL (digitalizada),si
+de Sant'Ana Alves 2024,2 ug/kg en 2 min,2,2,0,,6,6.8 (3-10.2),mestizos,despiertos,venosa cefálica,UHPLC-MS/MS,6,2.24,Fig.1 en pg/mL (digitalizada),si
+de Sant'Ana Alves 2024,2 ug/kg en 2 min,2,2,0,,6,6.8 (3-10.2),mestizos,despiertos,venosa cefálica,UHPLC-MS/MS,9,1.66,Fig.1 en pg/mL (digitalizada),si
+de Sant'Ana Alves 2024,2 ug/kg en 2 min,2,2,0,,6,6.8 (3-10.2),mestizos,despiertos,venosa cefálica,UHPLC-MS/MS,12,0.76,Fig.1 en pg/mL (digitalizada),si
+de Sant'Ana Alves 2024,2 ug/kg en 2 min,2,2,0,,6,6.8 (3-10.2),mestizos,despiertos,venosa cefálica,UHPLC-MS/MS,15,0.77,Fig.1 en pg/mL (digitalizada),si
+de Sant'Ana Alves 2024,2 ug/kg en 2 min,2,2,0,,6,6.8 (3-10.2),mestizos,despiertos,venosa cefálica,UHPLC-MS/MS,18,0.61,Fig.1 en pg/mL (digitalizada),si
+de Sant'Ana Alves 2024,2 ug/kg en 2 min,2,2,0,,6,6.8 (3-10.2),mestizos,despiertos,venosa cefálica,UHPLC-MS/MS,21,0.49,Fig.1 en pg/mL (digitalizada),si
+de Sant'Ana Alves 2024,2 ug/kg en 2 min,2,2,0,,6,6.8 (3-10.2),mestizos,despiertos,venosa cefálica,UHPLC-MS/MS,30,0.18,Fig.1 en pg/mL (digitalizada),si
+de Sant'Ana Alves 2024,2 ug/kg en 2 min,2,2,0,,6,6.8 (3-10.2),mestizos,despiertos,venosa cefálica,UHPLC-MS/MS,60,0.11,Fig.1 en pg/mL (digitalizada),no
+de Sant'Ana Alves 2024,2 ug/kg en 2 min,2,2,0,,6,6.8 (3-10.2),mestizos,despiertos,venosa cefálica,UHPLC-MS/MS,90,0.13,Fig.1 en pg/mL (digitalizada),no
+van Oostrom 2011,1 µg/kg + 1 µg/kg/h,1,1,1,,8,12.9,Beagle,despiertos,venosa cefálica,LC-MS/MS,37,0.47,Fig.3 (digitalizada; tiempo reconstruido del protocolo),si
+van Oostrom 2011,1 µg/kg + 1 µg/kg/h,1,1,1,,8,12.9,Beagle,despiertos,venosa cefálica,LC-MS/MS,47,0.46,Fig.3 (digitalizada; tiempo reconstruido del protocolo),si
+van Oostrom 2011,1 µg/kg + 1 µg/kg/h,1,1,1,,8,12.9,Beagle,despiertos,venosa cefálica,LC-MS/MS,57,0.51,Fig.3 (digitalizada; tiempo reconstruido del protocolo),si
+van Oostrom 2011,1 µg/kg + 1 µg/kg/h,1,1,1,,8,12.9,Beagle,despiertos,venosa cefálica,LC-MS/MS,67,0.49,Fig.3 (digitalizada; tiempo reconstruido del protocolo),si
+van Oostrom 2011,1 µg/kg + 1 µg/kg/h,1,1,1,,8,12.9,Beagle,despiertos,venosa cefálica,LC-MS/MS,77,0.76,Fig.3 (digitalizada; tiempo reconstruido del protocolo),si
+van Oostrom 2011,3 µg/kg + 3 µg/kg/h,3,1,3,,8,12.9,Beagle,despiertos,venosa cefálica,LC-MS/MS,37,1.79,Fig.3 (digitalizada; tiempo reconstruido del protocolo),si
+van Oostrom 2011,3 µg/kg + 3 µg/kg/h,3,1,3,,8,12.9,Beagle,despiertos,venosa cefálica,LC-MS/MS,47,1.83,Fig.3 (digitalizada; tiempo reconstruido del protocolo),si
+van Oostrom 2011,3 µg/kg + 3 µg/kg/h,3,1,3,,8,12.9,Beagle,despiertos,venosa cefálica,LC-MS/MS,57,1.93,Fig.3 (digitalizada; tiempo reconstruido del protocolo),si
+van Oostrom 2011,3 µg/kg + 3 µg/kg/h,3,1,3,,8,12.9,Beagle,despiertos,venosa cefálica,LC-MS/MS,67,1.92,Fig.3 (digitalizada; tiempo reconstruido del protocolo),si
+van Oostrom 2011,3 µg/kg + 3 µg/kg/h,3,1,3,,8,12.9,Beagle,despiertos,venosa cefálica,LC-MS/MS,77,1.94,Fig.3 (digitalizada; tiempo reconstruido del protocolo),si
+van Oostrom 2011,5 µg/kg + 5 µg/kg/h,5,1,5,,8,12.9,Beagle,despiertos,venosa cefálica,LC-MS/MS,37,3.17,Fig.3 (digitalizada; tiempo reconstruido del protocolo),si
+van Oostrom 2011,5 µg/kg + 5 µg/kg/h,5,1,5,,8,12.9,Beagle,despiertos,venosa cefálica,LC-MS/MS,47,4.88,Fig.3 (digitalizada; tiempo reconstruido del protocolo),si
+van Oostrom 2011,5 µg/kg + 5 µg/kg/h,5,1,5,,8,12.9,Beagle,despiertos,venosa cefálica,LC-MS/MS,57,4.51,Fig.3 (digitalizada; tiempo reconstruido del protocolo),si
+van Oostrom 2011,5 µg/kg + 5 µg/kg/h,5,1,5,,8,12.9,Beagle,despiertos,venosa cefálica,LC-MS/MS,67,3.9,Fig.3 (digitalizada; tiempo reconstruido del protocolo),si
+van Oostrom 2011,5 µg/kg + 5 µg/kg/h,5,1,5,,8,12.9,Beagle,despiertos,venosa cefálica,LC-MS/MS,77,3.67,Fig.3 (digitalizada; tiempo reconstruido del protocolo),si
+Lin 2008,ISO: isoflurano 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (isoflurano) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,5,0.638,Fig. 2 (digitalizada),si
+Lin 2008,ISO: isoflurano 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (isoflurano) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,15,0.442,Fig. 2 (digitalizada),si
+Lin 2008,ISO: isoflurano 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (isoflurano) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,30,0.405,Fig. 2 (digitalizada),si
+Lin 2008,ISO: isoflurano 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (isoflurano) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,45,0.398,Fig. 2 (digitalizada),si
+Lin 2008,ISO: isoflurano 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (isoflurano) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,60,0.423,Fig. 2 (digitalizada),si
+Lin 2008,ISO: isoflurano 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (isoflurano) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,90,0.426,Fig. 2 (digitalizada),si
+Lin 2008,ISO: isoflurano 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (isoflurano) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,120,0.470,Fig. 2 (digitalizada),si
+Lin 2008,ISO: isoflurano 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (isoflurano) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,180,0.442,Fig. 2 (digitalizada),si
+Lin 2008,ISO: isoflurano 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (isoflurano) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,240,0.414,Fig. 2 (digitalizada),si
+Lin 2008,ISO: isoflurano 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (isoflurano) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,360,0.375,Fig. 2 (digitalizada),si
+Lin 2008,ISO: isoflurano 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (isoflurano) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,480,0.360,Fig. 2 (digitalizada),si
+Lin 2008,ISO: isoflurano 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (isoflurano) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,600,0.347,Fig. 2 (digitalizada),si
+Lin 2008,ISO: isoflurano 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (isoflurano) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,720,0.293,Fig. 2 (digitalizada),si
+Lin 2008,ISO: isoflurano 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (isoflurano) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,960,0.296,Fig. 2 (digitalizada),si
+Lin 2008,ISO: isoflurano 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (isoflurano) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,1200,0.257,Fig. 2 (digitalizada),si
+Lin 2008,ISO: isoflurano 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (isoflurano) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,1440,0.234,Fig. 2 (digitalizada),si
+Lin 2008,ISO: isoflurano 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (isoflurano) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,1455,0.179,Fig. 2 (digitalizada),si
+Lin 2008,ISO: isoflurano 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (isoflurano) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,1470,0.112,Fig. 2 (digitalizada),si
+Lin 2008,ISO: isoflurano 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (isoflurano) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,1485,0.076,Fig. 2 (digitalizada),si
+Lin 2008,ISO: isoflurano 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (isoflurano) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,1500,0.049,Fig. 2 (digitalizada),si
+Lin 2008,ISO: isoflurano 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (isoflurano) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,1560,0.003,"Fig. 2 (digitalizada); por debajo del LLOQ (0,030 ng/mL)",no
+Lin 2008,PRO: propofol 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (propofol) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,5,0.372,Fig. 2 (digitalizada),si
+Lin 2008,PRO: propofol 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (propofol) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,15,0.337,Fig. 2 (digitalizada),si
+Lin 2008,PRO: propofol 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (propofol) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,30,0.334,Fig. 2 (digitalizada),si
+Lin 2008,PRO: propofol 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (propofol) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,45,0.335,"Fig. 2 (digitalizada; marcador parcialmente oculto, aproximado ±0,02)",si
+Lin 2008,PRO: propofol 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (propofol) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,60,0.352,Fig. 2 (digitalizada),si
+Lin 2008,PRO: propofol 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (propofol) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,90,0.391,Fig. 2 (digitalizada),si
+Lin 2008,PRO: propofol 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (propofol) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,120,0.411,Fig. 2 (digitalizada),si
+Lin 2008,PRO: propofol 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (propofol) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,180,0.445,"Fig. 2 (digitalizada; marcador parcialmente oculto, aproximado ±0,02)",si
+Lin 2008,PRO: propofol 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (propofol) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,240,0.444,Fig. 2 (digitalizada),si
+Lin 2008,PRO: propofol 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (propofol) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,360,0.405,Fig. 2 (digitalizada),si
+Lin 2008,PRO: propofol 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (propofol) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,480,0.343,"Fig. 2 (digitalizada; marcador parcialmente oculto, aproximado ±0,02)",si
+Lin 2008,PRO: propofol 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (propofol) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,600,0.332,"Fig. 2 (digitalizada; marcador parcialmente oculto, aproximado ±0,02)",si
+Lin 2008,PRO: propofol 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (propofol) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,720,0.336,Fig. 2 (digitalizada),si
+Lin 2008,PRO: propofol 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (propofol) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,960,0.329,Fig. 2 (digitalizada),si
+Lin 2008,PRO: propofol 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (propofol) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,1200,0.355,Fig. 2 (digitalizada),si
+Lin 2008,PRO: propofol 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (propofol) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,1440,0.283,Fig. 2 (digitalizada),si
+Lin 2008,PRO: propofol 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (propofol) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,1455,0.188,"Fig. 2 (digitalizada; marcador parcialmente oculto, aproximado ±0,02)",si
+Lin 2008,PRO: propofol 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (propofol) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,1470,0.119,"Fig. 2 (digitalizada; marcador parcialmente oculto, aproximado ±0,02)",si
+Lin 2008,PRO: propofol 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (propofol) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,1485,0.080,"Fig. 2 (digitalizada; marcador oculto por el de ISO, no legible)",no
+Lin 2008,PRO: propofol 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (propofol) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,1500,0.050,"Fig. 2 (digitalizada; marcador oculto por el de ISO, no legible)",no
+Lin 2008,PRO: propofol 2 h + 24 h,1.055,1,1.055,1440,10,13.7 (11.4-17.6),Beagle,anestesiados (propofol) 0-2 h; despiertos después,venosa yugular,LC-MS/MS,1560,0.010,"Fig. 2 (digitalizada); por debajo del LLOQ (0,030 ng/mL)",no
+Pascoe 2006,0.5 µg/kg en 6 min + 0.5 µg/kg/h,0.5,6,0.5,,6,13.0-17.7,Beagle,anestesiados (isoflurano),arterial (suero),GC-MS,68,0.182,Fig. 1 (digitalizada; tiempo = media de la toma),si
+Pascoe 2006,0.5 µg/kg en 6 min + 0.5 µg/kg/h,0.5,6,0.5,,6,13.0-17.7,Beagle,anestesiados (isoflurano),arterial (suero),GC-MS,151,0.197,Fig. 1 (digitalizada; tiempo = media de la toma),si
+Pascoe 2006,0.5 µg/kg en 6 min + 0.5 µg/kg/h,0.5,6,0.5,,6,13.0-17.7,Beagle,anestesiados (isoflurano),arterial (suero),GC-MS,236,0.230,Fig. 1 (digitalizada; tiempo = media de la toma),si
+Pascoe 2006,0.5 µg/kg en 6 min + 0.5 µg/kg/h,0.5,6,0.5,,6,13.0-17.7,Beagle,anestesiados (isoflurano),arterial (suero),GC-MS,319,0.211,Fig. 1 (digitalizada; tiempo = media de la toma),si
+Pascoe 2006,3 µg/kg en 6 min + 3 µg/kg/h,3,6,3,,6,13.0-17.7,Beagle,anestesiados (isoflurano),arterial (suero),GC-MS,70,1.520,Fig. 1 (digitalizada; tiempo = media de la toma),si
+Pascoe 2006,3 µg/kg en 6 min + 3 µg/kg/h,3,6,3,,6,13.0-17.7,Beagle,anestesiados (isoflurano),arterial (suero),GC-MS,180,2.176,Fig. 1 (digitalizada; tiempo = media de la toma),si
+Pascoe 2006,3 µg/kg en 6 min + 3 µg/kg/h,3,6,3,,6,13.0-17.7,Beagle,anestesiados (isoflurano),arterial (suero),GC-MS,290,1.989,Fig. 1 (digitalizada; tiempo = media de la toma),si
+Pascoe 2006,3 µg/kg en 6 min + 3 µg/kg/h,3,6,3,,6,13.0-17.7,Beagle,anestesiados (isoflurano),arterial (suero),GC-MS,412,1.994,Fig. 1 (digitalizada; tiempo = media de la toma),si
+Dent 2019,5 µg/kg IV,5,0.5,0,,6,25.2,mestizos (hound),despiertos,venosa safena,UPLC-MS/MS,110,1.4,Resultados (Clast medio a 110 ± 15 min; tiempo aproximado),si

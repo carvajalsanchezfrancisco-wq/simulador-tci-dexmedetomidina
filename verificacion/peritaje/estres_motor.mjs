@@ -1,12 +1,14 @@
 // Peritaje · prueba de estrés del motor: configuraciones y secuencias de eventos aleatorias
 // (cambios de objetivo, pausas, cambios de objetivo en pausa, reanudaciones) con comprobación de invariantes.
-import { build } from "/home/user/verificacion/node_modules/esbuild/lib/main.js";
+// Dependencias: las de ../../compilar (npm ci en esa carpeta)
+const NM = new URL("../../compilar/node_modules/", import.meta.url);
+const { build } = await import(new URL("esbuild/lib/main.js", NM));
 import { readFileSync, writeFileSync } from "node:fs";
-import { pathToFileURL } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 const SRC = process.argv[2], OUT = process.argv[3], N = Number(process.argv[4] ?? 3000);
 const tmp = OUT + ".jsx", bundle = OUT + ".mjs";
 writeFileSync(tmp, readFileSync(SRC, "utf8") + "\nexport { buildPlan, safetyReview, validateDraft, draftToConfig, simulateWashout, rateHistory, SAFETY, PUMP_STEP_MLH, LOAD_SEC, APP_VERSION };\n");
-await build({ entryPoints: [tmp], bundle: true, platform: "node", format: "esm", outfile: bundle, jsx: "automatic", logLevel: "warning", nodePaths: ["/home/user/verificacion/node_modules"] });
+await build({ entryPoints: [tmp], bundle: true, platform: "node", format: "esm", outfile: bundle, jsx: "automatic", logLevel: "warning", nodePaths: [fileURLToPath(NM)] });
 const M = await import(pathToFileURL(bundle).href);
 
 let seed = 20261012;

@@ -1,0 +1,1175 @@
+{
+ "modelo": {
+  "V1": 1.03,
+  "V2": 0.41,
+  "Cl1": 1.16,
+  "Cl2": 1.87
+ },
+ "estudios": [
+  {
+   "estudio": "Kuusela 2000",
+   "grupo": "DEX10",
+   "dosis_ugkg": 10.0,
+   "infusion_ugkgh": 0.0,
+   "n_puntos": 7,
+   "estado": "despiertos",
+   "muestra": "arterial",
+   "MDPE": -23.246561521015405,
+   "MDAPE": 30.860063871321238,
+   "PE_min": -44.36447916400045,
+   "PE_max": 71.23066092200251,
+   "dentro_banda_pct": 28.57142857142857,
+   "Cl_ajustado_Lhkg": 1.6240227416975694,
+   "puntos": [
+    {
+     "t": 5.0,
+     "medida": 13.5,
+     "predicha": 7.884,
+     "PE": 71.2,
+     "fiable": true
+    },
+    {
+     "t": 15.0,
+     "medida": 5.5,
+     "predicha": 5.79,
+     "PE": -5.0,
+     "fiable": true
+    },
+    {
+     "t": 30.0,
+     "medida": 3.6,
+     "predicha": 4.353,
+     "PE": -17.3,
+     "fiable": true
+    },
+    {
+     "t": 45.0,
+     "medida": 2.7,
+     "predicha": 3.518,
+     "PE": -23.2,
+     "fiable": true
+    },
+    {
+     "t": 60.0,
+     "medida": 2.0,
+     "predicha": 2.893,
+     "PE": -30.9,
+     "fiable": true
+    },
+    {
+     "t": 90.0,
+     "medida": 1.15,
+     "predicha": 1.973,
+     "PE": -41.7,
+     "fiable": true
+    },
+    {
+     "t": 120.0,
+     "medida": 0.75,
+     "predicha": 1.348,
+     "PE": -44.4,
+     "fiable": true
+    }
+   ]
+  },
+  {
+   "estudio": "Kuusela 2000",
+   "grupo": "DEX20",
+   "dosis_ugkg": 20.0,
+   "infusion_ugkgh": 0.0,
+   "n_puntos": 7,
+   "estado": "despiertos",
+   "muestra": "arterial",
+   "MDPE": -11.875681746351024,
+   "MDAPE": 20.89181020015764,
+   "PE_min": -25.8193055520006,
+   "PE_max": 109.28191890466972,
+   "dentro_banda_pct": 42.857142857142854,
+   "Cl_ajustado_Lhkg": 1.3574691532988645,
+   "puntos": [
+    {
+     "t": 5.0,
+     "medida": 33.0,
+     "predicha": 15.768,
+     "PE": 109.3,
+     "fiable": true
+    },
+    {
+     "t": 15.0,
+     "medida": 14.0,
+     "predicha": 11.581,
+     "PE": 20.9,
+     "fiable": true
+    },
+    {
+     "t": 30.0,
+     "medida": 8.6,
+     "predicha": 8.706,
+     "PE": -1.2,
+     "fiable": true
+    },
+    {
+     "t": 45.0,
+     "medida": 6.2,
+     "predicha": 7.036,
+     "PE": -11.9,
+     "fiable": true
+    },
+    {
+     "t": 60.0,
+     "medida": 4.7,
+     "predicha": 5.785,
+     "PE": -18.8,
+     "fiable": true
+    },
+    {
+     "t": 90.0,
+     "medida": 3.1,
+     "predicha": 3.947,
+     "PE": -21.5,
+     "fiable": true
+    },
+    {
+     "t": 120.0,
+     "medida": 2.0,
+     "predicha": 2.696,
+     "PE": -25.8,
+     "fiable": true
+    }
+   ]
+  },
+  {
+   "estudio": "Honkavaara 2012",
+   "grupo": "D (sin MK-467)",
+   "dosis_ugkg": 10.0,
+   "infusion_ugkgh": 0.0,
+   "n_puntos": 9,
+   "estado": "despiertos",
+   "muestra": "venosa central",
+   "MDPE": 19.565589217571212,
+   "MDAPE": 19.565589217571212,
+   "PE_min": -13.853948532861684,
+   "PE_max": 64.44793727867453,
+   "dentro_banda_pct": 44.44444444444444,
+   "Cl_ajustado_Lhkg": 1.195598865867833,
+   "puntos": [
+    {
+     "t": 1.0,
+     "medida": 15.4,
+     "predicha": 9.365,
+     "PE": 64.4,
+     "fiable": true
+    },
+    {
+     "t": 3.0,
+     "medida": 11.6,
+     "predicha": 8.557,
+     "PE": 35.6,
+     "fiable": true
+    },
+    {
+     "t": 5.0,
+     "medida": 11.5,
+     "predicha": 7.884,
+     "PE": 45.9,
+     "fiable": true
+    },
+    {
+     "t": 10.0,
+     "medida": 9.2,
+     "predicha": 6.634,
+     "PE": 38.7,
+     "fiable": true
+    },
+    {
+     "t": 20.0,
+     "medida": 6.2,
+     "predicha": 5.185,
+     "PE": 19.6,
+     "fiable": true
+    },
+    {
+     "t": 30.0,
+     "medida": 4.6,
+     "predicha": 4.353,
+     "PE": 5.7,
+     "fiable": true
+    },
+    {
+     "t": 45.0,
+     "medida": 3.4,
+     "predicha": 3.518,
+     "PE": -3.3,
+     "fiable": true
+    },
+    {
+     "t": 60.0,
+     "medida": 2.6,
+     "predicha": 2.893,
+     "PE": -10.1,
+     "fiable": true
+    },
+    {
+     "t": 90.0,
+     "medida": 1.7,
+     "predicha": 1.973,
+     "PE": -13.9,
+     "fiable": true
+    }
+   ]
+  },
+  {
+   "estudio": "de Sant'Ana Alves 2024",
+   "grupo": "2 ug/kg en 2 min",
+   "dosis_ugkg": 2.0,
+   "infusion_ugkgh": 0.0,
+   "n_puntos": 8,
+   "estado": "despiertos",
+   "muestra": "venosa cefálica",
+   "MDPE": -37.66633492828774,
+   "MDAPE": 43.937094994540715,
+   "PE_min": -79.56841612627386,
+   "PE_max": 50.88462391040256,
+   "dentro_banda_pct": 0.0,
+   "Cl_ajustado_Lhkg": 3.9196302037737114,
+   "puntos": [
+    {
+     "t": 3.0,
+     "medida": 2.67,
+     "predicha": 1.77,
+     "PE": 50.9,
+     "fiable": true
+    },
+    {
+     "t": 6.0,
+     "medida": 2.24,
+     "predicha": 1.562,
+     "PE": 43.4,
+     "fiable": true
+    },
+    {
+     "t": 9.0,
+     "medida": 1.66,
+     "predicha": 1.403,
+     "PE": 18.3,
+     "fiable": true
+    },
+    {
+     "t": 12.0,
+     "medida": 0.76,
+     "predicha": 1.279,
+     "PE": -40.6,
+     "fiable": true
+    },
+    {
+     "t": 15.0,
+     "medida": 0.77,
+     "predicha": 1.18,
+     "PE": -34.7,
+     "fiable": true
+    },
+    {
+     "t": 18.0,
+     "medida": 0.61,
+     "predicha": 1.099,
+     "PE": -44.5,
+     "fiable": true
+    },
+    {
+     "t": 21.0,
+     "medida": 0.49,
+     "predicha": 1.032,
+     "PE": -52.5,
+     "fiable": true
+    },
+    {
+     "t": 30.0,
+     "medida": 0.18,
+     "predicha": 0.881,
+     "PE": -79.6,
+     "fiable": true
+    },
+    {
+     "t": 60.0,
+     "medida": 0.11,
+     "predicha": 0.584,
+     "PE": -81.2,
+     "fiable": false
+    },
+    {
+     "t": 90.0,
+     "medida": 0.13,
+     "predicha": 0.398,
+     "PE": -67.4,
+     "fiable": false
+    }
+   ]
+  },
+  {
+   "estudio": "van Oostrom 2011",
+   "grupo": "1 µg/kg + 1 µg/kg/h",
+   "dosis_ugkg": 1.0,
+   "infusion_ugkgh": 1.0,
+   "n_puntos": 5,
+   "estado": "despiertos",
+   "muestra": "venosa cefálica",
+   "MDPE": -37.26281609483849,
+   "MDAPE": 37.26281609483849,
+   "PE_min": -39.459513008112374,
+   "PE_max": -3.9377159611878785,
+   "dentro_banda_pct": 20.0,
+   "Cl_ajustado_Lhkg": 2.012005183684362,
+   "puntos": [
+    {
+     "t": 37.0,
+     "medida": 0.47,
+     "predicha": 0.749,
+     "PE": -37.3,
+     "fiable": true
+    },
+    {
+     "t": 47.0,
+     "medida": 0.46,
+     "predicha": 0.76,
+     "PE": -39.5,
+     "fiable": true
+    },
+    {
+     "t": 57.0,
+     "medida": 0.51,
+     "predicha": 0.771,
+     "PE": -33.9,
+     "fiable": true
+    },
+    {
+     "t": 67.0,
+     "medida": 0.49,
+     "predicha": 0.782,
+     "PE": -37.3,
+     "fiable": true
+    },
+    {
+     "t": 77.0,
+     "medida": 0.76,
+     "predicha": 0.791,
+     "PE": -3.9,
+     "fiable": true
+    }
+   ]
+  },
+  {
+   "estudio": "van Oostrom 2011",
+   "grupo": "3 µg/kg + 3 µg/kg/h",
+   "dosis_ugkg": 3.0,
+   "infusion_ugkgh": 3.0,
+   "n_puntos": 5,
+   "estado": "despiertos",
+   "muestra": "venosa cefálica",
+   "MDPE": -18.262793405572143,
+   "MDAPE": 18.262793405572143,
+   "PE_min": -20.354922560114105,
+   "PE_max": -16.570064173983017,
+   "dentro_banda_pct": 0.0,
+   "Cl_ajustado_Lhkg": 1.616793685431511,
+   "puntos": [
+    {
+     "t": 37.0,
+     "medida": 1.79,
+     "predicha": 2.247,
+     "PE": -20.4,
+     "fiable": true
+    },
+    {
+     "t": 47.0,
+     "medida": 1.83,
+     "predicha": 2.279,
+     "PE": -19.7,
+     "fiable": true
+    },
+    {
+     "t": 57.0,
+     "medida": 1.93,
+     "predicha": 2.313,
+     "PE": -16.6,
+     "fiable": true
+    },
+    {
+     "t": 67.0,
+     "medida": 1.92,
+     "predicha": 2.345,
+     "PE": -18.1,
+     "fiable": true
+    },
+    {
+     "t": 77.0,
+     "medida": 1.94,
+     "predicha": 2.373,
+     "PE": -18.3,
+     "fiable": true
+    }
+   ]
+  },
+  {
+   "estudio": "van Oostrom 2011",
+   "grupo": "5 µg/kg + 5 µg/kg/h",
+   "dosis_ugkg": 5.0,
+   "infusion_ugkgh": 5.0,
+   "n_puntos": 5,
+   "estado": "despiertos",
+   "muestra": "venosa cefálica",
+   "MDPE": -0.21225558633940067,
+   "MDAPE": 15.371543413037447,
+   "PE_min": -15.371543413037447,
+   "PE_max": 28.451120226265907,
+   "dentro_banda_pct": 40.0,
+   "Cl_ajustado_Lhkg": 1.090917534503142,
+   "puntos": [
+    {
+     "t": 37.0,
+     "medida": 3.17,
+     "predicha": 3.746,
+     "PE": -15.4,
+     "fiable": true
+    },
+    {
+     "t": 47.0,
+     "medida": 4.88,
+     "predicha": 3.799,
+     "PE": 28.5,
+     "fiable": true
+    },
+    {
+     "t": 57.0,
+     "medida": 4.51,
+     "predicha": 3.856,
+     "PE": 17.0,
+     "fiable": true
+    },
+    {
+     "t": 67.0,
+     "medida": 3.9,
+     "predicha": 3.908,
+     "PE": -0.2,
+     "fiable": true
+    },
+    {
+     "t": 77.0,
+     "medida": 3.67,
+     "predicha": 3.956,
+     "PE": -7.2,
+     "fiable": true
+    }
+   ]
+  },
+  {
+   "estudio": "Lin 2008",
+   "grupo": "ISO: isoflurano 2 h + 24 h",
+   "dosis_ugkg": 1.055,
+   "infusion_ugkgh": 1.055,
+   "n_puntos": 20,
+   "estado": "anestesiados (isoflurano) 0-2 h; despiertos después",
+   "muestra": "venosa yugular",
+   "MDPE": -59.53591013855015,
+   "MDAPE": 59.53591013855015,
+   "PE_min": -87.7094404993002,
+   "PE_max": -30.380676144514972,
+   "dentro_banda_pct": 0.0,
+   "Cl_ajustado_Lhkg": 3.050822016852146,
+   "puntos": [
+    {
+     "t": 5.0,
+     "medida": 0.638,
+     "predicha": 0.916,
+     "PE": -30.4,
+     "fiable": true
+    },
+    {
+     "t": 15.0,
+     "medida": 0.442,
+     "predicha": 0.808,
+     "PE": -45.3,
+     "fiable": true
+    },
+    {
+     "t": 30.0,
+     "medida": 0.405,
+     "predicha": 0.785,
+     "PE": -48.4,
+     "fiable": true
+    },
+    {
+     "t": 45.0,
+     "medida": 0.398,
+     "predicha": 0.799,
+     "PE": -50.2,
+     "fiable": true
+    },
+    {
+     "t": 60.0,
+     "medida": 0.423,
+     "predicha": 0.817,
+     "PE": -48.2,
+     "fiable": true
+    },
+    {
+     "t": 90.0,
+     "medida": 0.426,
+     "predicha": 0.846,
+     "PE": -49.6,
+     "fiable": true
+    },
+    {
+     "t": 120.0,
+     "medida": 0.47,
+     "predicha": 0.866,
+     "PE": -45.7,
+     "fiable": true
+    },
+    {
+     "t": 180.0,
+     "medida": 0.442,
+     "predicha": 0.889,
+     "PE": -50.3,
+     "fiable": true
+    },
+    {
+     "t": 240.0,
+     "medida": 0.414,
+     "predicha": 0.9,
+     "PE": -54.0,
+     "fiable": true
+    },
+    {
+     "t": 360.0,
+     "medida": 0.375,
+     "predicha": 0.907,
+     "PE": -58.7,
+     "fiable": true
+    },
+    {
+     "t": 480.0,
+     "medida": 0.36,
+     "predicha": 0.909,
+     "PE": -60.4,
+     "fiable": true
+    },
+    {
+     "t": 600.0,
+     "medida": 0.347,
+     "predicha": 0.909,
+     "PE": -61.8,
+     "fiable": true
+    },
+    {
+     "t": 720.0,
+     "medida": 0.293,
+     "predicha": 0.909,
+     "PE": -67.8,
+     "fiable": true
+    },
+    {
+     "t": 960.0,
+     "medida": 0.296,
+     "predicha": 0.909,
+     "PE": -67.5,
+     "fiable": true
+    },
+    {
+     "t": 1200.0,
+     "medida": 0.257,
+     "predicha": 0.909,
+     "PE": -71.7,
+     "fiable": true
+    },
+    {
+     "t": 1440.0,
+     "medida": 0.234,
+     "predicha": 0.909,
+     "PE": -74.3,
+     "fiable": true
+    },
+    {
+     "t": 1455.0,
+     "medida": 0.179,
+     "predicha": 0.716,
+     "PE": -75.0,
+     "fiable": true
+    },
+    {
+     "t": 1470.0,
+     "medida": 0.112,
+     "predicha": 0.585,
+     "PE": -80.9,
+     "fiable": true
+    },
+    {
+     "t": 1485.0,
+     "medida": 0.076,
+     "predicha": 0.483,
+     "PE": -84.3,
+     "fiable": true
+    },
+    {
+     "t": 1500.0,
+     "medida": 0.049,
+     "predicha": 0.399,
+     "PE": -87.7,
+     "fiable": true
+    },
+    {
+     "t": 1560.0,
+     "medida": 0.003,
+     "predicha": 0.186,
+     "PE": -98.4,
+     "fiable": false
+    }
+   ]
+  },
+  {
+   "estudio": "Lin 2008",
+   "grupo": "PRO: propofol 2 h + 24 h",
+   "dosis_ugkg": 1.055,
+   "infusion_ugkgh": 1.055,
+   "n_puntos": 18,
+   "estado": "anestesiados (propofol) 0-2 h; despiertos después",
+   "muestra": "venosa yugular",
+   "MDPE": -58.84772679280135,
+   "MDAPE": 58.84772679280135,
+   "PE_min": -79.67151161067963,
+   "PE_max": -49.95741414157073,
+   "dentro_banda_pct": 0.0,
+   "Cl_ajustado_Lhkg": 3.092526555402184,
+   "puntos": [
+    {
+     "t": 5.0,
+     "medida": 0.372,
+     "predicha": 0.916,
+     "PE": -59.4,
+     "fiable": true
+    },
+    {
+     "t": 15.0,
+     "medida": 0.337,
+     "predicha": 0.808,
+     "PE": -58.3,
+     "fiable": true
+    },
+    {
+     "t": 30.0,
+     "medida": 0.334,
+     "predicha": 0.785,
+     "PE": -57.5,
+     "fiable": true
+    },
+    {
+     "t": 45.0,
+     "medida": 0.335,
+     "predicha": 0.799,
+     "PE": -58.1,
+     "fiable": true
+    },
+    {
+     "t": 60.0,
+     "medida": 0.352,
+     "predicha": 0.817,
+     "PE": -56.9,
+     "fiable": true
+    },
+    {
+     "t": 90.0,
+     "medida": 0.391,
+     "predicha": 0.846,
+     "PE": -53.8,
+     "fiable": true
+    },
+    {
+     "t": 120.0,
+     "medida": 0.411,
+     "predicha": 0.866,
+     "PE": -52.5,
+     "fiable": true
+    },
+    {
+     "t": 180.0,
+     "medida": 0.445,
+     "predicha": 0.889,
+     "PE": -50.0,
+     "fiable": true
+    },
+    {
+     "t": 240.0,
+     "medida": 0.444,
+     "predicha": 0.9,
+     "PE": -50.7,
+     "fiable": true
+    },
+    {
+     "t": 360.0,
+     "medida": 0.405,
+     "predicha": 0.907,
+     "PE": -55.4,
+     "fiable": true
+    },
+    {
+     "t": 480.0,
+     "medida": 0.343,
+     "predicha": 0.909,
+     "PE": -62.3,
+     "fiable": true
+    },
+    {
+     "t": 600.0,
+     "medida": 0.332,
+     "predicha": 0.909,
+     "PE": -63.5,
+     "fiable": true
+    },
+    {
+     "t": 720.0,
+     "medida": 0.336,
+     "predicha": 0.909,
+     "PE": -63.1,
+     "fiable": true
+    },
+    {
+     "t": 960.0,
+     "medida": 0.329,
+     "predicha": 0.909,
+     "PE": -63.8,
+     "fiable": true
+    },
+    {
+     "t": 1200.0,
+     "medida": 0.355,
+     "predicha": 0.909,
+     "PE": -61.0,
+     "fiable": true
+    },
+    {
+     "t": 1440.0,
+     "medida": 0.283,
+     "predicha": 0.909,
+     "PE": -68.9,
+     "fiable": true
+    },
+    {
+     "t": 1455.0,
+     "medida": 0.188,
+     "predicha": 0.716,
+     "PE": -73.8,
+     "fiable": true
+    },
+    {
+     "t": 1470.0,
+     "medida": 0.119,
+     "predicha": 0.585,
+     "PE": -79.7,
+     "fiable": true
+    },
+    {
+     "t": 1485.0,
+     "medida": 0.08,
+     "predicha": 0.483,
+     "PE": -83.4,
+     "fiable": false
+    },
+    {
+     "t": 1500.0,
+     "medida": 0.05,
+     "predicha": 0.399,
+     "PE": -87.5,
+     "fiable": false
+    },
+    {
+     "t": 1560.0,
+     "medida": 0.01,
+     "predicha": 0.186,
+     "PE": -94.6,
+     "fiable": false
+    }
+   ]
+  },
+  {
+   "estudio": "Pascoe 2006",
+   "grupo": "0.5 µg/kg en 6 min + 0.5 µg/kg/h",
+   "dosis_ugkg": 0.5,
+   "infusion_ugkgh": 0.5,
+   "n_puntos": 4,
+   "estado": "anestesiados (isoflurano)",
+   "muestra": "arterial (suero)",
+   "MDPE": -51.91263497171113,
+   "MDAPE": 51.91263497171113,
+   "PE_min": -53.99560880689156,
+   "PE_max": -46.114110984318614,
+   "dentro_banda_pct": 0.0,
+   "Cl_ajustado_Lhkg": 2.507305220140495,
+   "puntos": [
+    {
+     "t": 68.0,
+     "medida": 0.182,
+     "predicha": 0.396,
+     "PE": -54.0,
+     "fiable": true
+    },
+    {
+     "t": 151.0,
+     "medida": 0.197,
+     "predicha": 0.419,
+     "PE": -52.9,
+     "fiable": true
+    },
+    {
+     "t": 236.0,
+     "medida": 0.23,
+     "predicha": 0.427,
+     "PE": -46.1,
+     "fiable": true
+    },
+    {
+     "t": 319.0,
+     "medida": 0.211,
+     "predicha": 0.43,
+     "PE": -50.9,
+     "fiable": true
+    }
+   ]
+  },
+  {
+   "estudio": "Pascoe 2006",
+   "grupo": "3 µg/kg en 6 min + 3 µg/kg/h",
+   "dosis_ugkg": 3.0,
+   "infusion_ugkgh": 3.0,
+   "n_puntos": 4,
+   "estado": "anestesiados (isoflurano)",
+   "muestra": "arterial (suero)",
+   "MDPE": -22.765095974412613,
+   "MDAPE": 22.765095974412613,
+   "PE_min": -36.10496580956836,
+   "PE_max": -14.155184122125158,
+   "dentro_banda_pct": 25.0,
+   "Cl_ajustado_Lhkg": 1.5594621446320163,
+   "puntos": [
+    {
+     "t": 70.0,
+     "medida": 1.52,
+     "predicha": 2.379,
+     "PE": -36.1,
+     "fiable": true
+    },
+    {
+     "t": 180.0,
+     "medida": 2.176,
+     "predicha": 2.535,
+     "PE": -14.2,
+     "fiable": true
+    },
+    {
+     "t": 290.0,
+     "medida": 1.989,
+     "predicha": 2.573,
+     "PE": -22.7,
+     "fiable": true
+    },
+    {
+     "t": 412.0,
+     "medida": 1.994,
+     "predicha": 2.584,
+     "PE": -22.8,
+     "fiable": true
+    }
+   ]
+  },
+  {
+   "estudio": "Dent 2019",
+   "grupo": "5 µg/kg IV",
+   "dosis_ugkg": 5.0,
+   "infusion_ugkgh": 0.0,
+   "n_puntos": 1,
+   "estado": "despiertos",
+   "muestra": "venosa safena",
+   "MDPE": 82.93141179086999,
+   "MDAPE": 82.93141179086999,
+   "PE_min": 82.93141179086999,
+   "PE_max": 82.93141179086999,
+   "dentro_banda_pct": 0.0,
+   "Cl_ajustado_Lhkg": 0.6848180132322281,
+   "puntos": [
+    {
+     "t": 110.0,
+     "medida": 1.4,
+     "predicha": 0.765,
+     "PE": 82.9,
+     "fiable": true
+    }
+   ]
+  }
+ ],
+ "van_oostrom_provisional": [
+  {
+   "infusion_ugkgh": 1,
+   "medida": 0.533,
+   "pred_10_60": 0.7582161456556137,
+   "pred_10_120": 0.7812756093482102,
+   "PE_10_60": -29.703422559127112,
+   "PE_10_120": -31.77823630707446,
+   "Cl_aparente_Lhkg": 1.8761726078799248
+  },
+  {
+   "infusion_ugkgh": 3,
+   "medida": 1.869,
+   "pred_10_60": 2.2746484369668387,
+   "pred_10_120": 2.343826828044626,
+   "PE_10_60": -17.833456387122233,
+   "PE_10_120": -20.258613919901148,
+   "Cl_aparente_Lhkg": 1.6051364365971108
+  },
+  {
+   "infusion_ugkgh": 5,
+   "medida": 4.017,
+   "pred_10_60": 3.7910807282780667,
+   "pred_10_120": 3.9063780467410476,
+   "PE_10_60": 5.959231362096253,
+   "PE_10_120": 2.831829176165904,
+   "Cl_aparente_Lhkg": 1.2447099825740602
+  }
+ ],
+ "global": {
+  "n": 93,
+  "MDPE": -40.584871528361234,
+  "MDAPE": 45.86315560022437
+ },
+ "por_dosis": {
+  "0.5/h": {
+   "n": 4,
+   "MDPE": -51.91263497171113,
+   "MDAPE": 51.91263497171113
+  },
+  "1.055/h": {
+   "n": 38,
+   "MDPE": -59.04059498239455,
+   "MDAPE": 59.04059498239455
+  },
+  "1/h": {
+   "n": 5,
+   "MDPE": -37.26281609483849,
+   "MDAPE": 37.26281609483849
+  },
+  "10.0": {
+   "n": 16,
+   "MDPE": -4.180549807614434,
+   "MDAPE": 27.05331269616832
+  },
+  "2.0": {
+   "n": 8,
+   "MDPE": -37.66633492828774,
+   "MDAPE": 43.937094994540715
+  },
+  "20.0": {
+   "n": 7,
+   "MDPE": -11.875681746351024,
+   "MDAPE": 20.89181020015764
+  },
+  "3/h": {
+   "n": 9,
+   "MDPE": -19.718049858583804,
+   "MDAPE": 19.718049858583804
+  },
+  "5.0": {
+   "n": 1,
+   "MDPE": 82.93141179086999,
+   "MDAPE": 82.93141179086999
+  },
+  "5/h": {
+   "n": 5,
+   "MDPE": -0.21225558633940067,
+   "MDAPE": 15.371543413037447
+  }
+ },
+ "resumenes": [
+  {
+   "estudio": "Levionnois 2022 (referencia)",
+   "medida": "AUC0-∞ tras 10 µg/kg (h·ng/mL)",
+   "medido": 8.65,
+   "predicho": 8.620689655172415,
+   "dosis_total": 10.0,
+   "PE": 0.33999999999999486,
+   "Cl_aparente_Lhkg": 1.1560693641618496
+  },
+  {
+   "estudio": "Dent 2019 · 5 µg/kg IV (despiertos)",
+   "medida": "AUC0-∞ (h·ng/mL)",
+   "medido": 10.916666666666666,
+   "predicho": 4.310344827586207,
+   "dosis_total": 5.0,
+   "PE": 153.26666666666665,
+   "Cl_aparente_Lhkg": 0.45801526717557256
+  },
+  {
+   "estudio": "Lin 2008 · ISO (≈1 µg/kg + 1 µg/kg/h, 24 h)",
+   "medida": "AUC 0-26 h (h·ng/mL)",
+   "medido": 8.61,
+   "predicho": 22.49293211383546,
+   "dosis_total": 26.375,
+   "PE": -61.72130891417235,
+   "Cl_aparente_Lhkg": 3.0632984901277585
+  },
+  {
+   "estudio": "Lin 2008 · PRO (≈1 µg/kg + 1 µg/kg/h, 24 h)",
+   "medida": "AUC 0-26 h (h·ng/mL)",
+   "medido": 8.53,
+   "predicho": 22.49293211383546,
+   "dosis_total": 26.375,
+   "PE": -62.0769761948769,
+   "Cl_aparente_Lhkg": 3.0920281359906214
+  }
+ ],
+ "meseta": [
+  {
+   "estudio": "Pascoe 2006 (isoflurano)",
+   "tasa": 0.1,
+   "cp": null,
+   "nota": "Cp < 0,05 ng/mL (no cuantificable): Cl > 2,0",
+   "Cl_aparente_Lhkg": null,
+   "cp_modelo_equilibrio": 0.08620689655172414
+  },
+  {
+   "estudio": "Pascoe 2006 (isoflurano)",
+   "tasa": 0.5,
+   "cp": 0.198,
+   "Cl_aparente_Lhkg": 2.525252525252525,
+   "cp_modelo_equilibrio": 0.4310344827586207
+  },
+  {
+   "estudio": "Pascoe 2006 (isoflurano)",
+   "tasa": 3.0,
+   "cp": 1.903,
+   "Cl_aparente_Lhkg": 1.5764582238570677,
+   "cp_modelo_equilibrio": 2.586206896551724
+  },
+  {
+   "estudio": "Lin 2008 ISO (0,25-2 h)",
+   "tasa": 1.055,
+   "cp": 0.427,
+   "Cl_aparente_Lhkg": 2.470725995316159,
+   "cp_modelo_equilibrio": 0.9094827586206896
+  },
+  {
+   "estudio": "Lin 2008 PRO (0,25-2 h)",
+   "tasa": 1.055,
+   "cp": 0.36,
+   "Cl_aparente_Lhkg": 2.9305555555555554,
+   "cp_modelo_equilibrio": 0.9094827586206896
+  },
+  {
+   "estudio": "Lin 2008 ISO (3-12 h, despiertos)",
+   "tasa": 1.055,
+   "cp": 0.372,
+   "Cl_aparente_Lhkg": 2.836021505376344,
+   "cp_modelo_equilibrio": 0.9094827586206896
+  },
+  {
+   "estudio": "Lin 2008 PRO (3-12 h, despiertos)",
+   "tasa": 1.055,
+   "cp": 0.384,
+   "Cl_aparente_Lhkg": 2.747395833333333,
+   "cp_modelo_equilibrio": 0.9094827586206896
+  },
+  {
+   "estudio": "Lin 2008 ISO (24 h)",
+   "tasa": 1.055,
+   "cp": 0.234,
+   "Cl_aparente_Lhkg": 4.508547008547008,
+   "cp_modelo_equilibrio": 0.9094827586206896
+  },
+  {
+   "estudio": "Lin 2008 PRO (24 h)",
+   "tasa": 1.055,
+   "cp": 0.283,
+   "Cl_aparente_Lhkg": 3.72791519434629,
+   "cp_modelo_equilibrio": 0.9094827586206896
+  },
+  {
+   "estudio": "van Oostrom 2011 (despiertos)",
+   "tasa": 1.0,
+   "cp": 0.533,
+   "Cl_aparente_Lhkg": 1.8761726078799248,
+   "cp_modelo_equilibrio": 0.8620689655172414
+  },
+  {
+   "estudio": "van Oostrom 2011 (despiertos)",
+   "tasa": 3.0,
+   "cp": 1.869,
+   "Cl_aparente_Lhkg": 1.6051364365971108,
+   "cp_modelo_equilibrio": 2.586206896551724
+  },
+  {
+   "estudio": "van Oostrom 2011 (despiertos)",
+   "tasa": 5.0,
+   "cp": 4.017,
+   "Cl_aparente_Lhkg": 1.2447099825740602,
+   "cp_modelo_equilibrio": 4.310344827586207
+  }
+ ],
+ "sensibilidad": {
+  "todos": {
+   "n": 93,
+   "MDPE": -40.584871528361234,
+   "MDAPE": 45.86315560022437
+  },
+  "sin_de_SantAna_2024": {
+   "n": 85,
+   "MDPE": -41.72472988987703,
+   "MDAPE": 46.114110984318614
+  },
+  "solo_t>=10min": {
+   "n": 83,
+   "MDPE": -45.29238642149472,
+   "MDAPE": 45.7347584009615
+  },
+  "sin_2024_y_t>=10min": {
+   "n": 78,
+   "MDPE": -45.51357241122811,
+   "MDAPE": 45.92443469264006
+  },
+  "solo_infusiones": {
+   "n": 15,
+   "MDPE": -18.1228763785349,
+   "MDAPE": 18.262793405572143
+  },
+  "solo_bolos_t>=10min_sin_2024": {
+   "n": 63,
+   "MDPE": -50.29477988893093,
+   "MDAPE": 50.668659353150225
+  },
+  "solo_t>=30min": {
+   "n": 73,
+   "MDPE": -48.22297685694638,
+   "MDAPE": 48.41760947816251
+  },
+  "despiertos": {
+   "n": 71,
+   "MDPE": -30.860063871321238,
+   "MDAPE": 41.72472988987703
+  },
+  "anestesiados": {
+   "n": 22,
+   "MDPE": -49.92418999136202,
+   "MDAPE": 49.92418999136202
+  },
+  "infusiones_t>=10min": {
+   "n": 59,
+   "MDPE": -50.88094519521291,
+   "MDAPE": 50.88094519521291
+  },
+  "sin_puntos_aproximados": {
+   "n": 86,
+   "MDPE": -37.28782166107714,
+   "MDAPE": 44.437675575705676
+  },
+  "sin_Dent": {
+   "n": 92,
+   "MDPE": -41.15480070911913,
+   "MDAPE": 45.798957000592935
+  }
+ }
+}
