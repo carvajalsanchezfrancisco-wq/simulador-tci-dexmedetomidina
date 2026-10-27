@@ -14,7 +14,7 @@ Simulador de infusión controlada por objetivo (TCI) de dexmedetomidina para can
 ## Estado actual (27/10/2026)
 
 - **Versión vigente:** v1.4.0. Modelo por defecto nuevo, «corregido para anestesia», con V1, V2 y aclaramiento reajustados tras la reunión con CONICET (`documentos/fase1_v5_volumenes_aclaramiento.md`). Dossier técnico: `documentos/Dossier_tecnico_TCI_dexmedetomidina_v1.4.0.pdf`.
-- **v1.3.0:** recuperada byte a byte el 26/10 (ver «Cómo se recuperó»); etiqueta git `v1.3.0`.
+- **v1.3.0:** recuperada byte a byte el 26/10 (ver «Cómo se recuperó»); commit `3ed65b6`.
 - **Reunión con CONICET** (Dr. Litterio y Dr. Lorenzutti): celebrada el 27/10/2026. Acta y consecuencias en `documentos/acta_reunion_CONICET_2026-10-27.md`.
 - **Paquete enviado a revisión** (correo a Litterio del 13/10/2026): `revision_farmacocinetica.zip` (v1.2.1) y `Protocolo_TCI-DEX-01_v1.2.pdf`. Ambos están en el repositorio.
 
@@ -103,7 +103,7 @@ node verificacion/peritaje/estres_motor.mjs simulador/tci_dexmedetomidina_perros
 | `simulador/tci_dexmedetomidina_perros.jsx` | `da9205562c8c9946814d03cc56ac816da2332b00669dbac16cd4e271e71b3f13` |
 | `simulador/simulador_tci_dexmedetomidina.html` | `014e937009013abc5bd123deb0a9c30baabee9116f2a410d98be805bd1bf038a` |
 
-**Huellas SHA-256 de v1.3.0** (etiqueta `v1.3.0`)
+**Huellas SHA-256 de v1.3.0** (commit `3ed65b6`)
 
 | Archivo | SHA-256 |
 |---|---|

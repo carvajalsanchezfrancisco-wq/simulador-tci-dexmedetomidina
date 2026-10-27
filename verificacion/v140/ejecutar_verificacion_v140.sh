@@ -13,7 +13,7 @@ JSX="$ROOT/simulador/tci_dexmedetomidina_perros.jsx"
 HTML="$ROOT/simulador/simulador_tci_dexmedetomidina.html"
 mkdir -p "$OUT"
 [ -d "$ROOT/compilar/node_modules" ] || (cd "$ROOT/compilar" && npm ci --no-audit --no-fund)
-git -C "$ROOT" show v1.3.0:simulador/tci_dexmedetomidina_perros.jsx > "$OUT/v130.jsx"
+git -C "$ROOT" show 3ed65b6:simulador/tci_dexmedetomidina_perros.jsx > "$OUT/v130.jsx"   # commit de la v1.3.0 recuperada
 grep -q 'APP_VERSION = "1.3.0"' "$OUT/v130.jsx"
 
 echo "── 1. Regresión y precisión del TCI"
