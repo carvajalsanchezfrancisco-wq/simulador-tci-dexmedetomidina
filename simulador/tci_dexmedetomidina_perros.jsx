@@ -9,7 +9,7 @@ import {
 // © 2026 Francisco Carvajal Sánchez. Todos los derechos reservados.
 // ═══════════════════════════════════════════════════════════════════════════════
 const AUTHOR = "Francisco Carvajal Sánchez";
-const APP_VERSION = "1.3.0";   // mostrar en pantalla y en el CSV: identifica la versión evaluada
+const APP_VERSION = "1.4.0";   // mostrar en pantalla y en el CSV: identifica la versión evaluada
 const COPYRIGHT_YEAR = 2026;
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -29,8 +29,21 @@ const COPYRIGHT_YEAR = 2026;
 // Comprobación: con estos valores se reproducen t½ = 0.91 h (publicado 0.92),
 // AUC(10 µg/kg) = 8.62 h·ng/mL (8.65) y MRT = 1.24 h (1.25).
 //
-// Modelo «anestesiado» (por defecto desde la v1.2.0; desde la v1.2.2 se presenta como
-// «Levionnois 2022 · ampliado para anestesia»): es el mismo modelo de Levionnois, con su
+// Modelo «corregido» (por defecto desde la v1.4.0; «Levionnois 2022 · corregido para
+// anestesia»): misma estructura de Levionnois, con los volúmenes y el aclaramiento
+// reajustados a la vez en perros anestesiados, porque al fijar V1 y V2 el error de
+// volumen se cargaba sobre el aclaramiento (observación de IRNASUS UCC-CONICET, 27/10/2026):
+//   V1 = 2.70 L/kg (2,6 veces; IC 95 % ≈ 2,2–3,0) · V2 = 0.72 L/kg (1,75 veces; poco
+//   determinado, IC 95 % ≈ 0,5–3,5) · Cl2 = 1.87 L/h/kg (el publicado)
+//   Cl(C) = Cl∞ + (Cl0 − Cl∞)·C50/(C50 + C),  Cl∞ = 1.16 L/h/kg, Cl0 = 3.47 L/h/kg, C50 = 0.21 ng/mL
+// Con 0,5 / 1 / 2 ng/mL el aclaramiento es 1,83 / 1,56 / 1,38 L/h/kg (dentro del flujo hepático).
+// Reproduce la subida de la Cp durante las primeras horas de anestesia. Error mediano en la
+// calibración 8,5 % (frente a 23,7 % del «anestesiado»). Calibración y comprobaciones:
+// validacion_fase1/modelo_volumenes_aclaramiento.py (Fase 1, v5). Solo para perros
+// anestesiados: al despertar el aclaramiento casi se duplica (Lin 2008) y el modelo no lo recoge.
+//
+// Modelo «anestesiado» (por defecto en las v1.2.0–v1.3.0; se mantiene para comparar,
+// como «Levionnois 2022 · ampliado, solo aclaramiento»): es el mismo modelo de Levionnois, con su
 // estructura, V1, V2 y Cl2 y su aclaramiento a concentración alta, al que se añade un
 // aclaramiento que aumenta cuando la concentración es baja:
 //   Cl(C) = Cl∞ + (Cl0 − Cl∞)·C50/(C50 + C),   Cl∞ = 1.16 L/h/kg (el publicado)
@@ -41,16 +54,22 @@ const COPYRIGHT_YEAR = 2026;
 // A concentraciones altas coincide con el publicado. Con las curvas completas de los
 // dos estudios (Fase 1, v4) el reajuste da 3.21/0.95 (dosis +2 %): se mantienen 3.15/0.92.
 // Limitación conocida: en anestesia la Cp medida sube durante 2–3 h pese a la carga, y
-// este modelo no lo reproduce (posible volumen central mayor; pendiente de la Fase 3).
+// este modelo no lo reproduce (lo corrige el modelo «corregido», con V1 y V2 reajustados).
 //
 //   k10 = Cl/V1 · k12 = Cl2/V1 · k21 = Cl2/V2   [min⁻¹]
 //
 // Unidades: Cp en ng/mL ≡ µg/L · V en L · cantidades en µg · tiempo en min
 // ═══════════════════════════════════════════════════════════════════════════════
 const PK_MODELS = {
+  corregido: {
+    label: "Levionnois 2022 · corregido para anestesia",
+    short: "corregido para anestesia",
+    reference: "Levionnois et al. 2022 con V1, V2 y aclaramiento reajustados en perros anestesiados (Pascoe 2006, Lin 2008)",
+    V1: 2.70, V2: 0.72, Cl2: 1.87, clInf: 1.16, cl0: 3.47, c50: 0.21,   // L/kg, L/h/kg, ng/mL
+  },
   anestesiado: {
-    label: "Levionnois 2022 · ampliado para anestesia",
-    short: "ampliado para anestesia",
+    label: "Levionnois 2022 · ampliado, solo aclaramiento (v1.3)",
+    short: "ampliado (v1.3)",
     reference: "Levionnois et al. 2022 con aclaramiento dependiente de la Cp (Pascoe 2006, Lin 2008)",
     V1: 1.03, V2: 0.41, Cl2: 1.87, clInf: 1.16, cl0: 3.15, c50: 0.92,   // L/kg, L/h/kg, ng/mL
   },
@@ -61,13 +80,13 @@ const PK_MODELS = {
     V1: 1.03, V2: 0.41, Cl2: 1.87, clInf: 1.16, cl0: 1.16, c50: null,   // aclaramiento constante
   },
 };
-const DEFAULT_MODEL = "anestesiado";
+const DEFAULT_MODEL = "corregido";
 
 // ── Límites de seguridad (bomba inteligente) ─────────────────────────────────
 // Blando: aviso que exige confirmación explícita. Duro: bloqueo.
 // Anclados a la Cp de equilibrio del modelo publicado (Cp = dosis horaria / 1,16 L/h/kg),
 // para que cuadren con las CRI publicadas en perros (0,5–3 µg/kg/h). Son los mismos con
-// los dos modelos: limitan la dosis, no la Cp predicha. PROPUESTA
+// todos los modelos: limitan la dosis, no la Cp predicha. PROPUESTA
 // para validar con el equipo clínico antes de uso en pacientes.
 const SAFETY = {
   targetCp:    { soft: 2.5, hard: 4.0 },   // ng/mL (2,5 ≈ equilibrio de 3 µg/kg/h)
@@ -126,7 +145,7 @@ const WASHOUT_MAX_MIN = 120;    // la Cp se sigue calculando hasta 120 min tras 
 // Validación externa (Fase 1) del modelo publicado: con objetivos bajos la Cp medida en otros estudios fue menor
 // que la predicha, alrededor de un 20 % en perros despiertos (van Oostrom 2011: −37 % con 1 µg/kg/h, −18 % con
 // 3 µg/kg/h) y un 50 % en perros anestesiados (Pascoe 2006, Lin 2008). Con el modelo publicado se avisa al usuario;
-// el modelo «anestesiado» corrige ese sesgo.
+// los modelos para anestesia («corregido» y «anestesiado») corrigen ese sesgo.
 const EXTERNAL_BIAS_NOTE_MAX_CP = 2;   // ng/mL: por debajo o igual, se muestra el aviso junto al objetivo
 
 // Rango de peso habitual del Beagle adulto, población en la que se obtuvo el modelo.
@@ -148,7 +167,7 @@ const INDUCTION_LABEL = {
 
 const DEFAULT_DRAFT = {
   model: DEFAULT_MODEL,
-  weight: "25", targetCp: "2.0", duration: "60", stock: 500, conc: "auto", concCustom: "",
+  weight: "25", targetCp: "1.0", duration: "60", stock: 500, conc: "auto", concCustom: "",   // 1 ng/mL desde la v1.4.0 (con 2 ng/mL y el modelo corregido la carga es de 6 µg/kg)
   induction: "load", syringeMl: 50, pumpMin: String(PUMP_MIN_MLH), pumpMax: String(PUMP_MAX_MLH), premed: "0",
 };
 
@@ -174,7 +193,7 @@ const DEFAULT_DRAFT = {
 // ideal sale de la banda, de modo que el error se reparte a ambos lados del
 // objetivo. La Cp resultante del esquema escalonado se simula con Euler (dt = 1 s).
 //
-// Con el modelo «anestesiado» (aclaramiento dependiente de la Cp) el sistema no es
+// Con los modelos «corregido» y «anestesiado» (aclaramiento dependiente de la Cp) el sistema no es
 // lineal: el descenso libre, la respuesta a una tasa constante y la tasa de carga se
 // calculan por integración numérica (Runge-Kutta 4, paso de 1 s) y la carga se
 // resuelve por el método de la secante. El mantenimiento sigue siendo exacto, porque
@@ -1675,9 +1694,11 @@ function SetupPanel({ draft, setDraft, validation, locked, dirty, onProgram, dra
           </select>
         </Field>
         <p className="tci-note tci-note--field">
-          {draft.model === "publicado"
-            ? "Modelo original de Levionnois (perros despiertos, bolo de 10 µg/kg). Coincide con el ampliado a concentraciones altas; con concentraciones bajas, en perros anestesiados predice el doble de la Cp medida: úselo para comparar."
-            : `Modelo de Levionnois con el aclaramiento ampliado a concentraciones bajas, calibrado en perros anestesiados (Pascoe 2006, Lin 2008): Cl = ${PK_MODELS.anestesiado.clInf} L/h/kg (el original) con Cp altas, hasta ${PK_MODELS.anestesiado.cl0} L/h/kg con Cp bajas.`}
+          {{
+            corregido: `Modelo de Levionnois con volúmenes y aclaramiento reajustados en perros anestesiados (Pascoe 2006, Lin 2008): V1 ${PK_MODELS.corregido.V1} L/kg y V2 ${PK_MODELS.corregido.V2} L/kg; Cl = ${PK_MODELS.corregido.clInf} L/h/kg con Cp altas, hasta ${PK_MODELS.corregido.cl0} L/h/kg con Cp muy bajas. Solo para perros anestesiados; la carga es mayor que con los otros modelos.`,
+            anestesiado: `Modelo de las v1.2–v1.3: solo amplía el aclaramiento (${PK_MODELS.anestesiado.clInf} L/h/kg con Cp altas, hasta ${PK_MODELS.anestesiado.cl0} L/h/kg con Cp bajas), con los volúmenes de Levionnois. No reproduce la subida de la Cp en las primeras horas de anestesia: úselo para comparar.`,
+            publicado: "Modelo original de Levionnois (perros despiertos, bolo de 10 µg/kg). Con concentraciones bajas, en perros anestesiados predice el doble de la Cp medida: úselo para comparar.",
+          }[draft.model]}
         </p>
         <Field id="weight" label="Peso" unit="kg" error={fields.weight.error}>
           <input id="weight" inputMode="decimal" value={draft.weight} onChange={set("weight")} />
@@ -2056,18 +2077,25 @@ const SafetyPanel = memo(function SafetyPanel({ plan, review }) {
             <tr><td>Peso</td><td>fuera de {MODEL_WEIGHT_KG.min}–{MODEL_WEIGHT_KG.max} kg</td><td>fuera de {LIMITS.weight.min}–{LIMITS.weight.max} kg</td></tr>
           </tbody>
         </table>
-        <p className="tci-note">Propuesta anclada al equilibrio del modelo original de Levionnois (Cp = dosis horaria / 1,16 L/h/kg), igual con los dos modelos: pendiente de validación clínica.</p>
+        <p className="tci-note">Propuesta anclada al equilibrio del modelo original de Levionnois (Cp = dosis horaria / 1,16 L/h/kg), igual con todos los modelos: pendiente de validación clínica.</p>
       </details>
       <ul className="tci-list tci-list--muted">
         {plan.pk.linear ? (
           <li>
             Validación externa del modelo original: con objetivos ≤ {EXTERNAL_BIAS_NOTE_MAX_CP} ng/mL la concentración medida en otros
             estudios fue menor que la predicha, ≈ 20 % en perros despiertos y ≈ 50 % en perros anestesiados (Pascoe 2006, Lin 2008).
-            En anestesia use el modelo ampliado.
+            En anestesia use el modelo corregido.
+          </li>
+        ) : plan.pk.model === "corregido" ? (
+          <li>
+            Modelo corregido para anestesia: volúmenes y aclaramiento calibrados con 2 estudios en perros anestesiados (Pascoe 2006,
+            Lin 2008; error mediano 8,5 %, y 17–20 % al predecir un estudio con el otro). Se basa en medias de grupo de Beagles jóvenes:
+            en un perro concreto la Cp puede ser un 30–50 % mayor o menor. No sirve para perros despiertos (al despertar el aclaramiento
+            casi se duplica). Ajuste el objetivo según la respuesta clínica y vigile FC y PA, sobre todo con objetivos altos.
           </li>
         ) : (
           <li>
-            Modelo ampliado para anestesia: aclaramiento calibrado con 2 estudios (Pascoe 2006, Lin 2008; error mediano 23 %) y comprobado
+            Modelo ampliado (v1.3, solo aclaramiento): aclaramiento calibrado con 2 estudios (Pascoe 2006, Lin 2008; error mediano 23 %) y comprobado
             en 5 estudios con perros despiertos (error mediano 18 %). En esos estudios, durante la anestesia la Cp real quedó por debajo de
             la predicha la primera hora y algo por encima después. En un perro concreto puede ser un 30–50 % mayor o menor: ajuste el
             objetivo según la respuesta clínica y vigile FC y PA, sobre todo con objetivos altos.

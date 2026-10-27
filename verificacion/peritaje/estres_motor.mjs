@@ -7,7 +7,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath, pathToFileURL } from "node:url";
 const SRC = process.argv[2], OUT = process.argv[3], N = Number(process.argv[4] ?? 3000);
 const tmp = OUT + ".jsx", bundle = OUT + ".mjs";
-writeFileSync(tmp, readFileSync(SRC, "utf8") + "\nexport { buildPlan, safetyReview, validateDraft, draftToConfig, simulateWashout, rateHistory, SAFETY, PUMP_STEP_MLH, LOAD_SEC, APP_VERSION };\n");
+writeFileSync(tmp, readFileSync(SRC, "utf8") + "\nexport { buildPlan, safetyReview, validateDraft, draftToConfig, simulateWashout, rateHistory, SAFETY, PUMP_STEP_MLH, LOAD_SEC, APP_VERSION, PK_MODELS };\n");
 await build({ entryPoints: [tmp], bundle: true, platform: "node", format: "esm", outfile: bundle, jsx: "automatic", logLevel: "warning", nodePaths: [fileURLToPath(NM)] });
 const M = await import(pathToFileURL(bundle).href);
 
@@ -24,7 +24,7 @@ const fail = (id, msg, ctx) => { if (fails.length < 40) fails.push({ id, msg, ct
 for (let k = 0; k < N; k++) {
   const induction = rnd() < 0.8 ? "load" : "none";
   const draft = {
-    model: pick(["anestesiado", "publicado"]), weight: String(pick([2, 3.5, 5, 8, 12.4, 15, 20, 25, 33, 40, 60, 80])),
+    model: pick(Object.keys(M.PK_MODELS)), weight: String(pick([2, 3.5, 5, 8, 12.4, 15, 20, 25, 33, 40, 60, 80])),
     targetCp: String(r1(0.1, 4)), duration: String(pick([15, 30, 45, 60, 90, 120, 180, 240])), stock: pick([100, 200, 500]),
     conc: "auto", concCustom: "", induction, syringeMl: pick([10, 20, 50]),
     pumpMin: String(pick([0.1, 0.5, 1, 2])), pumpMax: String(pick([50, 100, 200, 999])),

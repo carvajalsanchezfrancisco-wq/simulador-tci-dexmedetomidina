@@ -3,17 +3,18 @@
 Implementación independiente del simulador: lee del CSV el peso, la concentración de la jeringa, la
 premedicación IM y el REGISTRO DE TASAS (tasa que infundió la bomba, segundo a segundo), y resuelve:
   · el modelo publicado (Levionnois et al. 2022) de forma exacta (exponencial de matriz por tramos), y
-  · el modelo corregido para perros anestesiados (v1.2.0; aclaramiento dependiente de la Cp) con un
-    integrador de alta precisión (Dormand-Prince 8, tolerancia relativa 1e-10).
+  · los modelos con aclaramiento dependiente de la Cp con un integrador de alta precisión (Dormand-Prince 8,
+    tolerancia relativa 1e-10): «anestesiado» (v1.2.0; volúmenes de Levionnois) y «corregido» (v1.4.0; V1, V2
+    y aclaramiento reajustados en perros anestesiados).
 El CSV indica qué modelo guiaba la bomba («Código del modelo»; sin ese dato, v1.1.1: el publicado). Las
 constantes son las de este archivo; se comprueba que coinciden con las que anotó el simulador en el CSV.
 
   · Verificación (Fase 0): compara la Cp exacta con la que el programa anotó en cada fila del registro de tasas.
   · Si junto al CSV hay un archivo «<nombre>_lecturas.csv» (codigo;tiempo;cp_pantalla), compara también la Cp
     leída en pantalla en esos instantes, incluidos los posteriores al fin de la infusión.
-  · Fase 3: con --muestras, calcula la Cp predicha POR LOS DOS MODELOS en la hora de cada muestra de sangre
-    (anotada en el cuaderno con el reloj del simulador), con la misma infusión real. Así se comparan los dos
-    modelos con la concentración medida. Archivo con columnas «codigo;tiempo», tiempo en hh:mm:ss.
+  · Fase 3: con --muestras, calcula la Cp predicha POR CADA MODELO en la hora de cada muestra de sangre
+    (anotada en el cuaderno con el reloj del simulador), con la misma infusión real. Así se comparan los
+    modelos con la concentración medida, sea cual sea el que guiaba la bomba. Archivo con columnas «codigo;tiempo», tiempo en hh:mm:ss.
 
 Usos:
   python3 reconstruir_cp.py caso.csv                          tabla por fila del registro de tasas
@@ -32,10 +33,14 @@ from scipy.linalg import expm
 
 # Levionnois et al. 2022, Tabla 2 (por kg): L/kg y L/h/kg
 V1_KG, V2_KG, CL1_KG, CL2_KG = 1.03, 0.41, 1.16, 1.87
-# Modelo corregido (Fase 1, validacion_fase1/modelo_corregido.py): Cl(C) = Cl∞ + (Cl0 − Cl∞)·C50/(C50 + C), Cl∞ = CL1_KG
+# Aclaramiento dependiente de la Cp: Cl(C) = Cl∞ + (Cl0 − Cl∞)·C50/(C50 + C), Cl∞ = CL1_KG
+#   «anestesiado» (v1.2.0, validacion_fase1/modelo_corregido.py): volúmenes de Levionnois
+#   «corregido» (v1.4.0, validacion_fase1/modelo_volumenes_aclaramiento.py): V1 y V2 reajustados en anestesia
 CL0_KG, C50 = 3.15, 0.92
-MODELS = {"publicado": (V1_KG, V2_KG, CL2_KG, CL1_KG, CL1_KG, None),          # V1, V2, Cl2, Cl∞, Cl0, C50
-          "anestesiado": (V1_KG, V2_KG, CL2_KG, CL1_KG, CL0_KG, C50)}
+V1C_KG, V2C_KG, CL0C_KG, C50C = 2.70, 0.72, 3.47, 0.21
+MODELS = {"corregido": (V1C_KG, V2C_KG, CL2_KG, CL1_KG, CL0C_KG, C50C),      # V1, V2, Cl2, Cl∞, Cl0, C50
+          "anestesiado": (V1_KG, V2_KG, CL2_KG, CL1_KG, CL0_KG, C50),
+          "publicado": (V1_KG, V2_KG, CL2_KG, CL1_KG, CL1_KG, None)}
 # Premedicación IM tal como la modela el simulador (supuestos, no publicados): inyección 10 min antes,
 # biodisponibilidad 1, semivida de absorción 3 min
 IM_DELAY_MIN, IM_F, IM_HALF_MIN = 10.0, 1.0, 3.0
@@ -172,7 +177,7 @@ def clock(text):
 
 
 def predict_samples(path, times_path):
-    """Fase 3: Cp predicha por los dos modelos en la hora de cada muestra anotada en el cuaderno."""
+    """Fase 3: Cp predicha por cada modelo en la hora de cada muestra anotada en el cuaderno."""
     case = parse_case_csv(path)
     with open(times_path, encoding="utf-8-sig", newline="") as f:
         items = [(r["codigo"].strip(), clock(r["tiempo"])) for r in csv.DictReader(f, delimiter=";")]
@@ -182,7 +187,7 @@ def predict_samples(path, times_path):
     end = int(num(end)) if end and end[0].isdigit() else None
     return [{"codigo": c, "segundo": s, "tiempo": f"{s // 3600:02d}:{s % 3600 // 60:02d}:{s % 60:02d}",
              "min_desde_fin": round((s - end) / 60, 2) if end is not None and s >= end else None,
-             "cp_anestesiado": float(pred["anestesiado"][s]), "cp_publicado": float(pred["publicado"][s])} for c, s in items]
+             **{f"cp_{m}": float(pred[m][s]) for m in MODELS}} for c, s in items]
 
 
 def analyse(path):
@@ -243,10 +248,10 @@ def main(argv):
         rows = predict_samples(paths[0], times)
         code = pump_model(parse_case_csv(paths[0]))[0]
         print(f"{paths[0].name} · bomba guiada por el modelo «{code}» · Cp predicha por cada modelo (ng/mL)")
-        print(f"    {'código':6s} {'tiempo':8s}  {'anestesiado':>11s}  {'publicado':>9s}")
+        print(f"    {'código':6s} {'tiempo':8s}  " + "  ".join(f"{m:>11s}" for m in MODELS))
         for r in rows:
             post = f" · {r['min_desde_fin']} min tras el fin" if r["min_desde_fin"] is not None else ""
-            print(f"    {r['codigo']:6s} {r['tiempo']}  {r['cp_anestesiado']:11.4f}  {r['cp_publicado']:9.4f}{post}")
+            print(f"    {r['codigo']:6s} {r['tiempo']}  " + "  ".join(f"{r['cp_' + m]:11.4f}" for m in MODELS) + post)
         if out_json:
             Path(out_json).write_text(json.dumps({"archivo": paths[0].name, "modelo_bomba": code, "muestras": rows},
                                                  ensure_ascii=False, indent=1))

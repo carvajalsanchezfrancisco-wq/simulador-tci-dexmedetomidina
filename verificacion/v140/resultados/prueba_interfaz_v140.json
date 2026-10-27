@@ -1,0 +1,101 @@
+{
+ "results": [
+  {
+   "id": "UI-V1",
+   "desc": "La pantalla muestra la versión 1.4.0",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "id": "UI-V2",
+   "desc": "Tres modelos en el selector; por defecto, el corregido",
+   "pass": true,
+   "detail": "Levionnois 2022 · corregido para anestesia · por defecto | Levionnois 2022 · ampliado, solo aclaramiento (v1.3) | Levionnois 2022 · original"
+  },
+  {
+   "id": "UI-corregido-1",
+   "desc": "Nota del modelo «corregido» bajo el selector",
+   "pass": true,
+   "detail": "Modelo de Levionnois con volúmenes y aclaramiento reajustados en perros anestesiados (Pasc"
+  },
+  {
+   "id": "UI-corregido-2",
+   "desc": "El protocolo programado muestra el modelo y la carga",
+   "pass": true,
+   "detail": "Levionnois 2022 · corregido para anestesia · carga 2.989 µg/kg"
+  },
+  {
+   "id": "UI-corregido-3",
+   "desc": "Tras la carga la Cp calculada está en el objetivo (1,00 ± 0,05 ng/mL)",
+   "pass": true,
+   "detail": "Cp 1"
+  },
+  {
+   "id": "UI-corregido-4",
+   "desc": "El CSV exportado lleva la versión y el código del modelo",
+   "pass": true,
+   "detail": "código corregido"
+  },
+  {
+   "id": "UI-anestesiado-1",
+   "desc": "Nota del modelo «anestesiado» bajo el selector",
+   "pass": true,
+   "detail": "Modelo de las v1.2–v1.3: solo amplía el aclaramiento (1.16 L/h/kg con Cp altas, hasta 3.15"
+  },
+  {
+   "id": "UI-anestesiado-2",
+   "desc": "El protocolo programado muestra el modelo y la carga",
+   "pass": true,
+   "detail": "Levionnois 2022 · ampliado, solo aclaramiento (v1.3) · carga 1.378 µg/kg"
+  },
+  {
+   "id": "UI-anestesiado-3",
+   "desc": "Tras la carga la Cp calculada está en el objetivo (1,00 ± 0,05 ng/mL)",
+   "pass": true,
+   "detail": "Cp 1"
+  },
+  {
+   "id": "UI-anestesiado-4",
+   "desc": "El CSV exportado lleva la versión y el código del modelo",
+   "pass": true,
+   "detail": "código anestesiado"
+  },
+  {
+   "id": "UI-publicado-1",
+   "desc": "Nota del modelo «publicado» bajo el selector",
+   "pass": true,
+   "detail": "Modelo original de Levionnois (perros despiertos, bolo de 10 µg/kg). Con concentraciones b"
+  },
+  {
+   "id": "UI-publicado-2",
+   "desc": "El protocolo programado muestra el modelo y la carga",
+   "pass": true,
+   "detail": "Levionnois 2022 · original · carga 1.267 µg/kg"
+  },
+  {
+   "id": "UI-publicado-3",
+   "desc": "Tras la carga la Cp calculada está en el objetivo (1,00 ± 0,05 ng/mL)",
+   "pass": true,
+   "detail": "Cp 1"
+  },
+  {
+   "id": "UI-publicado-4",
+   "desc": "El CSV exportado lleva la versión y el código del modelo",
+   "pass": true,
+   "detail": "código publicado"
+  },
+  {
+   "id": "UI-V3",
+   "desc": "Con 1 ng/mL la carga del corregido es mayor que la del ampliado (volumen central mayor)",
+   "pass": true,
+   "detail": "corregido 2.989 · ampliado 1.378 · publicado 1.267 µg/kg"
+  },
+  {
+   "id": "UI-V4",
+   "desc": "Ningún error de JavaScript en la página",
+   "pass": true,
+   "detail": ""
+  }
+ ],
+ "errors": []
+}

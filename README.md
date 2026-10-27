@@ -11,22 +11,24 @@ Simulador de infusión controlada por objetivo (TCI) de dexmedetomidina para can
 
 **Para usar el simulador:** abra `simulador/simulador_tci_dexmedetomidina.html` en Chrome, Edge o Firefox. Funciona sin conexión.
 
-## Estado actual (26/10/2026)
+## Estado actual (27/10/2026)
 
-- **Versión vigente:** v1.3.0. El código fuente y el HTML del repositorio son idénticos byte a byte a la v1.3.0 entregada (ver «Cómo se recuperó»).
-- **Reunión con CONICET** (Dra. Litterio y Dr. Lorenzutti): martes 27/10/2026, 18:30 h Córdoba (16:30 h Perú), por Google Meet. La guía de preparación está en `documentos/`.
+- **Versión vigente:** v1.4.0. Modelo por defecto nuevo, «corregido para anestesia», con V1, V2 y aclaramiento reajustados tras la reunión con CONICET (`documentos/fase1_v5_volumenes_aclaramiento.md`). Dossier técnico: `documentos/Dossier_tecnico_TCI_dexmedetomidina_v1.4.0.pdf`.
+- **v1.3.0:** recuperada byte a byte el 26/10 (ver «Cómo se recuperó»); etiqueta git `v1.3.0`.
+- **Reunión con CONICET** (Dr. Litterio y Dr. Lorenzutti): celebrada el 27/10/2026. Acta y consecuencias en `documentos/acta_reunion_CONICET_2026-10-27.md`.
 - **Paquete enviado a revisión** (correo a Litterio del 13/10/2026): `revision_farmacocinetica.zip` (v1.2.1) y `Protocolo_TCI-DEX-01_v1.2.pdf`. Ambos están en el repositorio.
 
 ## Estructura
 
 | Carpeta | Contenido |
 |---|---|
-| `simulador/` | **v1.3.0**: código fuente (`tci_dexmedetomidina_perros.jsx`) y página lista para usar (`simulador_tci_dexmedetomidina.html`). |
+| `simulador/` | **v1.4.0**: código fuente (`tci_dexmedetomidina_perros.jsx`) y página lista para usar (`simulador_tci_dexmedetomidina.html`). |
 | `compilar/` | Compilación del HTML a partir del jsx, con dependencias fijadas (salida idéntica byte a byte). |
 | `documentos/` | Protocolo TCI-DEX-01 v1.2 (PDF y Markdown), dossier para el revisor farmacocinético y guía de la reunión con CONICET. |
 | `informes/` | Informe técnico v1.2.1 (español e inglés), Fase 1 v4, verificación Fase 0 v1.2.1, figuras y el LEEME del paquete. |
 | `validacion_fase1/` | Datos publicados (99 medias), scripts de la Fase 1, resultados y `modelo_integrado.py` (ajuste conjunto con Levionnois). |
 | `verificacion/motor/` | `referencia.py` (implementación independiente de los dos modelos) y `reconstruir_cp.py` (Cp desde el CSV de un caso). |
+| `verificacion/v140/` | Verificación de la v1.4.0: regresión frente a la v1.3.0, precisión del TCI con el modelo nuevo, interfaz; `ejecutar_verificacion_v140.sh` y resúmenes en `resultados/`. |
 | `verificacion/peritaje/` | Prueba de estrés (`estres_motor.mjs`) y pruebas de hallazgos H-01 a H-09 (`pruebas_hallazgos.mjs`). |
 | `versiones/v1.2.1/` | Simulador v1.2.1 y el zip exacto enviado a revisión (base de la regresión). |
 | `reconstruccion/` | Script que convierte el jsx v1.2.1 en v1.3.0 aplicando los nueve pasos de cambio registrados. |
@@ -52,8 +54,9 @@ node verificacion/peritaje/estres_motor.mjs simulador/tci_dexmedetomidina_perros
 
 **Modelos farmacocinéticos**
 
+- **Corregido para anestesia (predeterminado desde la v1.4.0):** V1 2,70 L/kg, V2 0,72 L/kg, Cl2 1,87 L/h/kg y Cl(C) con Cl0 3,47 L/h/kg y C50 0,21 ng/mL. Solo para perros anestesiados.
 - **Publicado (Levionnois 2022):** bicompartimental. V1 1.03 L/kg, V2 0.41 L/kg, Cl 1.16 L/h/kg, Cl2 1.87 L/h/kg.
-- **Ampliado para anestesia (predeterminado):** igual que el anterior, pero con aclaramiento dependiente de la concentración: Cl(C) = 1.16 + (Cl0 − 1.16)·C50/(C50 + C), con Cl0 = 3.15 L/h/kg y C50 = 0.92 ng/mL.
+- **Ampliado, solo aclaramiento (predeterminado en v1.2–v1.3; se conserva para comparar):** igual que el anterior, pero con aclaramiento dependiente de la concentración: Cl(C) = 1.16 + (Cl0 − 1.16)·C50/(C50 + C), con Cl0 = 3.15 L/h/kg y C50 = 0.92 ng/mL.
   - Recupera el valor de Levionnois a concentraciones altas.
   - Describe el aclaramiento mayor observado a concentraciones bajas o durante la anestesia.
   - En el código, los identificadores internos siguen siendo `anestesiado` y `publicado`.
@@ -73,6 +76,7 @@ node verificacion/peritaje/estres_motor.mjs simulador/tci_dexmedetomidina_perros
 | v1.2.1 | Paquete enviado a revisión (13/10). Incluye Fase 0 (944 escenarios contra una referencia independiente) y Fase 1 v4. |
 | v1.2.2 | Integra el modelo de Levionnois con la corrección para anestesia. Nombres de modelo: «Publicado» y «Ampliado para anestesia». |
 | v1.3.0 | Hace el simulador menos restrictivo por debajo de 4 ng/mL; corrige los defectos D-03 a D-06; añade el peritaje del código (detalles abajo). |
+| v1.4.0 | Modelo por defecto «corregido para anestesia» (V1, V2 y aclaramiento reajustados); objetivo inicial 1 ng/mL. Verificación: regresión 200/200, reconstrucción 298/298, TCI 400/400, estrés sin fallos, hallazgos 27/27, interfaz 16/16. |
 
 **Novedades de v1.3.0**
 
@@ -92,12 +96,19 @@ node verificacion/peritaje/estres_motor.mjs simulador/tci_dexmedetomidina_perros
   - Interfaz: 26/26 pruebas en el HTML y en el .exe; Windows 9/9.
   - Peritaje: prueba de estrés de 4991 casos aleatorios sin fallos, y pruebas de hallazgos H-01 a H-09 superadas.
 
-**Huellas SHA-256 de v1.3.0**
+**Huellas SHA-256 de v1.4.0**
 
 | Archivo | SHA-256 |
 |---|---|
-| `simulador/tci_dexmedetomidina_perros.jsx` | `a1e4a98914e06f5800561889dad599b83af843e16354552f6c12becfd08a1e8a` |
-| `simulador/simulador_tci_dexmedetomidina.html` | `191c627f2443f42bc36a61d1b5eb8d26cc3f609613b95779934e37c05c717320` |
+| `simulador/tci_dexmedetomidina_perros.jsx` | `da9205562c8c9946814d03cc56ac816da2332b00669dbac16cd4e271e71b3f13` |
+| `simulador/simulador_tci_dexmedetomidina.html` | `014e937009013abc5bd123deb0a9c30baabee9116f2a410d98be805bd1bf038a` |
+
+**Huellas SHA-256 de v1.3.0** (etiqueta `v1.3.0`)
+
+| Archivo | SHA-256 |
+|---|---|
+| jsx | `a1e4a98914e06f5800561889dad599b83af843e16354552f6c12becfd08a1e8a` |
+| HTML | `191c627f2443f42bc36a61d1b5eb8d26cc3f609613b95779934e37c05c717320` |
 | Instalador Windows (no incluido) | `d34b6adbb6e64ebaa1fb744a5ffe5f73a9bcb995a22b08ba9a12969075d325a5` |
 | Ejecutable (no incluido) | `5a48d370ae3d08efbe8d571bce8756b8ce5d5d7e3b065d8bad7a2f83753b709d` |
 
@@ -120,7 +131,7 @@ El contenedor de trabajo se reinició el 24/10/2026 y se perdieron los archivos 
 
 **Aún no está en el repositorio**
 
-- El instalador y el ejecutable de Windows v1.3.0. El autor los tiene, y conviene subirlos como *Release* de GitHub porque son archivos binarios grandes.
+- El instalador y el ejecutable de Windows (v1.3.0 en poder del autor; la v1.4.0 no se ha compilado). El autor los tiene, y conviene subirlos como *Release* de GitHub porque son archivos binarios grandes.
 - El código de escritorio para Windows (Go).
 - El PDF del peritaje del código.
 - El arnés completo de la Fase 0: `verificar_motor.mjs`, `pruebas_ui.mjs`, `pruebas_exe.py` y `generar_informe.py`.

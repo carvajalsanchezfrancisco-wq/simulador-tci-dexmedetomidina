@@ -1,0 +1,24 @@
+{
+ "version": "1.4.0",
+ "anterior": "1.3.0",
+ "modeloPorDefecto": "corregido",
+ "casos": {
+  "corregido": 98,
+  "anestesiado": 100,
+  "publicado": 100
+ },
+ "invalidos": 2,
+ "reg": {
+  "comparados": 200,
+  "distintos": [],
+  "pass": true
+ },
+ "tci": {
+  "cargas": 400,
+  "mantenimiento": 400,
+  "fallos": [],
+  "desviacionMaxMant": 0.026544842611443853,
+  "cargasLimitadasPorDosis": 244,
+  "pass": true
+ }
+}

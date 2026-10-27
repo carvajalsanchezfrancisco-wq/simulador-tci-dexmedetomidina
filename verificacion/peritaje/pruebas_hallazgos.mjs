@@ -1,5 +1,5 @@
 // Peritaje · pruebas de los hallazgos de la revisión (escenarios concretos de los revisores).
-// Uso: node pruebas_hallazgos.mjs <jsx> <salida>
+// Uso: node pruebas_hallazgos.mjs <jsx> <salida> [modelo]   (por defecto, «anestesiado», con el que se escribieron)
 // Dependencias: las de ../../compilar (npm ci en esa carpeta)
 const NM = new URL("../../compilar/node_modules/", import.meta.url);
 const { build } = await import(new URL("esbuild/lib/main.js", NM));
@@ -11,7 +11,8 @@ await build({ entryPoints: [OUT + ".jsx"], bundle: true, platform: "node", forma
 const M = await import(pathToFileURL(OUT + ".mjs").href);
 const res = [];
 const test = (id, desc, ok, ev) => { res.push({ id, desc, pass: !!ok, evidencia: ev }); console.log(`${ok ? "✔" : "✘"} ${id} ${desc} · ${ev}`); };
-const cfg = (o = {}) => { const d = { model: "anestesiado", weight: "25", targetCp: "2.0", duration: "60", stock: 500, conc: "auto", concCustom: "", induction: "load", syringeMl: 50, pumpMin: "1", pumpMax: "100", premed: "0", ...o }; return M.draftToConfig(d, M.validateDraft(d)); };
+const MODEL = process.argv[4] ?? "anestesiado";   // modelo con el que se ejecutan las pruebas
+const cfg = (o = {}) => { const d = { model: MODEL, weight: "25", targetCp: "2.0", duration: "60", stock: 500, conc: "auto", concCustom: "", induction: "load", syringeMl: 50, pumpMin: "1", pumpMax: "100", premed: "0", ...o }; return M.draftToConfig(d, M.validateDraft(d)); };
 const rev = (c, ch, timing = null) => M.safetyReview(M.buildPlan(c, ch, timing), c);
 const val = (r, code) => r.items.find(i => i.code === code)?.value;
 
@@ -28,8 +29,10 @@ const val = (r, code) => r.items.find(i => i.code === code)?.value;
   const plusTarget = [...baseline, { level: "soft", code: "target", value: 3.5 }];   // confirmado en pausa
   const cand = rev(c, [{ sec: 900, targetCp: 2, pause: true }, { sec: 940, targetCp: 3.5, pause: true }, { sec: 960, targetCp: 3.5 }]);
   const nw = M.newOrWorse(cand.items, plusTarget, "soft").map(i => i.code);
-  test("H-02", "Objetivo subido en pausa: al reanudar se pide confirmar la dosis en 60 min que empeora, no el objetivo ya confirmado",
-    nw.includes("hour") && !nw.includes("target"), `línea base hour ${val({ items: baseline }, "hour")?.toFixed(2)} → candidato ${val(cand, "hour")?.toFixed(2)} · nuevos/peores: ${nw.join(", ")}`);
+  // Con el modelo «corregido» (v1.4.0) la carga es mayor y la dosis en 60 min pasa el límite duro: reanudar se bloquea
+  const nwHard = M.newOrWorse(cand.items, plusTarget, "hard").map(i => i.code);
+  test("H-02", "Objetivo subido en pausa: al reanudar se pide confirmar (o se bloquea) la dosis en 60 min que empeora, no el objetivo ya confirmado",
+    (nw.includes("hour") || nwHard.includes("hour")) && !nw.includes("target"), `línea base hour ${val({ items: baseline }, "hour")?.toFixed(2)} → candidato ${val(cand, "hour")?.toFixed(2)} · blandos nuevos/peores: ${nw.join(", ")} · duros: ${nwHard.join(", ")}`);
 }
 // H-03 · Una confirmación no vale si los valores han subido desde que se mostró
 {
@@ -89,8 +92,11 @@ const val = (r, code) => r.items.find(i => i.code === code)?.value;
   const r0 = rev(c, [{ sec: 1200, targetCp: 4 }]);
   const r1 = rev(c, [{ sec: 1200, targetCp: 4 }, { sec: 1400, targetCp: 1 }]);
   const r2 = rev(c, [{ sec: 1200, targetCp: 4 }, { sec: 1401, targetCp: 4, pause: true }]);
+  // Con el modelo publicado la carga de 0,1 a 4 ng/mL no llega al tope de 30 µg/kg/h: el escenario no aplica
+  const applies = r0.items.some(i => i.code === "doseLimited");
   test("H-09", "Carga limitada por dosis cortada por un cambio o una pausa: sin aviso de «no alcanza»",
-    r0.items.some(i => i.code === "doseLimited") && !r1.items.some(i => i.code === "doseShort") && !r2.items.some(i => i.code === "doseShort"), `sin cortar: ${r0.items.map(i => i.code).join(",")} · cambio: ${r1.items.map(i => i.code).join(",")} · pausa: ${r2.items.map(i => i.code).join(",")}`);
+    applies ? !r1.items.some(i => i.code === "doseShort") && !r2.items.some(i => i.code === "doseShort") : MODEL === "publicado",
+    `${applies ? "" : "NO APLICA (la carga no llega al tope de dosis) · "}sin cortar: ${r0.items.map(i => i.code).join(",")} · cambio: ${r1.items.map(i => i.code).join(",")} · pausa: ${r2.items.map(i => i.code).join(",")}`);
 }
 writeFileSync(OUT + "_resultado.json", JSON.stringify({ version: M.APP_VERSION, results: res }, null, 1));
 console.log(`${res.length} pruebas · ${res.filter(r => !r.pass).length} fallos`);

@@ -1,0 +1,59 @@
+{
+ "version": "1.4.0",
+ "results": [
+  {
+   "id": "H-01",
+   "desc": "Reanudar en el segundo del cambio en pausa usa el objetivo nuevo (plan.target[sec])",
+   "pass": true,
+   "evidencia": "target[999] 2 · target[1000] 3"
+  },
+  {
+   "id": "H-02",
+   "desc": "Objetivo subido en pausa: al reanudar se pide confirmar (o se bloquea) la dosis en 60 min que empeora, no el objetivo ya confirmado",
+   "pass": true,
+   "evidencia": "línea base hour 6.21 → candidato 9.58 · blandos nuevos/peores: hour · duros: "
+  },
+  {
+   "id": "H-03",
+   "desc": "Segundo clic con avisos peores que los mostrados: no se acepta; con los mismos (±2 %), sí",
+   "pass": true,
+   "evidencia": "peores false · iguales true"
+  },
+  {
+   "id": "H-04",
+   "desc": "Bajar el objetivo desde una dosis en 60 min por encima del límite duro no pide confirmación",
+   "pass": true,
+   "evidencia": "nuevos/peores: 0"
+  },
+  {
+   "id": "H-05",
+   "desc": "Objetivo de pausa sustituido (3,0 → 2,2) no genera «Cp objetivo 3.00 > 2.5»",
+   "pass": true,
+   "evidencia": "Dosis en 60 min 6.6 µg/kg > 6 µg/kg."
+  },
+  {
+   "id": "H-06",
+   "desc": "Ninguna subida de exactamente 1,00 ng/mL (1,1–3,0 → +1) se considera > 1 ng/mL",
+   "pass": true,
+   "evidencia": "0 pares"
+  },
+  {
+   "id": "H-07",
+   "desc": "Modo manual: al pausar con «Detener» sin confirmar, la Cp registrada hasta la pausa no cambia",
+   "pass": true,
+   "evidencia": "diferencia máx. hasta 1500 s: corregido 0.0e+0 · sin corregir 0.334 ng/mL (Cp a 1500 s 2.01 vs 1.68)"
+  },
+  {
+   "id": "H-08",
+   "desc": "Carga que supera la bomba y el límite de dosis: se atribuye al límite que actúa",
+   "pass": true,
+   "evidencia": "conc 50 µg/mL · tope de dosis 48.0 mL/h · bomba 50 mL/h · pedida 50.3 · programada 48 · limited false · doseLimited true"
+  },
+  {
+   "id": "H-09",
+   "desc": "Carga limitada por dosis cortada por un cambio o una pausa: sin aviso de «no alcanza»",
+   "pass": true,
+   "evidencia": "sin cortar: target,load,rate,doseLimited,hour,custom · cambio: target,rate,doseLimited,custom · pausa: target,rate,doseLimited,custom"
+  }
+ ]
+}

@@ -1,0 +1,30 @@
+{
+ "tolerancia_rel": 0.005,
+ "tolerancia_abs": 0.0005,
+ "por_modelo": {
+  "anestesiado": {
+   "archivos": 100,
+   "conformes": 100,
+   "valores": 660,
+   "dif_max_pct": 0.08624736426799996,
+   "dif_max_pct_cp_mayor_0_05": 0.08624736426799996,
+   "parametros_coinciden": true
+  },
+  "corregido": {
+   "archivos": 98,
+   "conformes": 98,
+   "valores": 639,
+   "dif_max_pct": 0.49472311616656744,
+   "dif_max_pct_cp_mayor_0_05": 0.09719977317835525,
+   "parametros_coinciden": true
+  },
+  "publicado": {
+   "archivos": 100,
+   "conformes": 100,
+   "valores": 664,
+   "dif_max_pct": 0.2392115209995519,
+   "dif_max_pct_cp_mayor_0_05": 0.08878834460689425,
+   "parametros_coinciden": true
+  }
+ }
+}

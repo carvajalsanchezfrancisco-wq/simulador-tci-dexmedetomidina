@@ -1,0 +1,18 @@
+{
+ "version": "1.4.0",
+ "semilla": 20261012,
+ "casos": 4949,
+ "invalidos": 42,
+ "duros": 242,
+ "eventos": 12362,
+ "cargas": 3423,
+ "errCargaMax": 0.04249238429337984,
+ "errMantMax": 0.08350175211797234,
+ "pausasConCambio": 1497,
+ "limitadosPorResolucion": 16,
+ "errCargaMaxTasa5": 0.008264246492791413,
+ "tasaEnErrMantMax": 0.4,
+ "errMantMaxTasa5": 0.03639285354526783,
+ "fallos": 0,
+ "detalle": []
+}
